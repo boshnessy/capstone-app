@@ -30,4 +30,21 @@ class EventsController < ApplicationController
       render json: {errors: event.errors.full_messages}
     end
   end
+
+  def update
+    id = params[:id]
+    event = Event.find_by(id: id)
+
+    if event.update(
+        date: params[:date],
+        artist: params[:artist],
+        venue: params[:venue],
+        city: params[:city]
+      )
+      render json: event.as_json
+    else
+      render json: {errors: event.errors.full_messages}
+    end
+
+  end
 end

@@ -31,12 +31,35 @@ require 'unirest'
 # p response.body
 
 # CREATE ACTION
-response = Unirest.post("localhost:3000/events", 
+# response = Unirest.post("localhost:3000/events", 
+#   parameters: {
+#     date: "Apr 8, 2018",
+#     artist: "me",
+#     venue: "condo",
+#     city: "Chicago"
+#   }
+# )
+
+# p response.body
+
+# UPDATE ACTION
+p "Enter id of event you wish to update"
+id = gets.chomp
+p "Enter date"
+date = gets.chomp
+p "Enter artist"
+artist = gets.chomp
+p "Enter venue"
+venue = gets.chomp
+p "Enter city"
+city = gets.chomp
+
+response = Unirest.patch("localhost:3000/events/#{id}",
   parameters: {
-    date: "Apr 8, 2018",
-    artist: "me",
-    venue: "condo",
-    city: "Chicago"
+    date: date,
+    artist: artist,
+    venue: venue,
+    city: city
   }
 )
 
