@@ -43,24 +43,31 @@ require 'unirest'
 # p response.body
 
 # UPDATE ACTION
-p "Enter id of event you wish to update"
+# p "Enter id of event you wish to update"
+# id = gets.chomp
+# p "Enter date"
+# date = gets.chomp
+# p "Enter artist"
+# artist = gets.chomp
+# p "Enter venue"
+# venue = gets.chomp
+# p "Enter city"
+# city = gets.chomp
+
+# response = Unirest.patch("localhost:3000/events/#{id}",
+#   parameters: {
+#     date: date,
+#     artist: artist,
+#     venue: venue,
+#     city: city
+#   }
+# )
+
+# p response.body
+
+# DESTROY ACTION
+p "Enter the id of the event you wish to delete"
 id = gets.chomp
-p "Enter date"
-date = gets.chomp
-p "Enter artist"
-artist = gets.chomp
-p "Enter venue"
-venue = gets.chomp
-p "Enter city"
-city = gets.chomp
 
-response = Unirest.patch("localhost:3000/events/#{id}",
-  parameters: {
-    date: date,
-    artist: artist,
-    venue: venue,
-    city: city
-  }
-)
-
+response = Unirest.delete("localhost:3000/events/#{id}")
 p response.body

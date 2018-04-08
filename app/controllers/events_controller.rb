@@ -45,6 +45,15 @@ class EventsController < ApplicationController
     else
       render json: {errors: event.errors.full_messages}
     end
+  end
 
+  def destroy
+    id = params[:id]
+    event = Event.find_by(id: id)
+    if event.destroy
+      render json: {message: "event deleted"}
+    else
+      render json: {errors: event.errors.full_messages}
+    end
   end
 end
