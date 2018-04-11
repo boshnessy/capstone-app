@@ -1,17 +1,14 @@
 class EventsController < ApplicationController
   def index
     events = Event.all
+    # events = Event.where(artist: artist)
+    # events = Event.where(venue: venue)
     render json: events.as_json
   end
 
   def show
-    artist = params[:artist]
-    events = Event.where(artist: artist)
-
-    # venue = params[:venue]
-    # events = Event.where(venue: venue)
-
-    # Event.where("date LIKE ?", "%Apr%")
+    id = params[:id]
+    event = Event.find_by(id: id)
 
     render json: event.as_json
   end

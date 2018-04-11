@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   post '/events' => 'events#create'
   patch '/events/:id' => 'events#update'
   delete '/events/:id' => 'events#destroy'
+  get '/forums' => 'forums#index'
+  post '/forums' => 'forums#create'
 end
