@@ -1,4 +1,5 @@
 class ForumsController < ApplicationController
+
   def index
     forums = Forum.all
     render json: forums.as_json
@@ -12,6 +13,32 @@ class ForumsController < ApplicationController
     )
     if forum.save
       render json: forum.as_json
+    else
+      render json: {errors: forum.errors.full_messages}
+    end
+  end
+
+  def update
+    id = params[:id]
+    forum = Forum.find_by(id: id)
+
+    if forum.update(
+      comment: params[:comment],
+      user_id: current_user.id,
+      event_id: params[:event_id]
+      )
+      render json: forum.as_json
+    else
+      render json: {errors: forum.errors.full_messages}
+    end
+  end
+
+  def destroy
+    id = params[:id]
+    forum = Forum.find_by(id: id)
+
+    if forum.destroy
+      render json: {message: "comment deleted"}
     else
       render json: {errors: forum.errors.full_messages}
     end

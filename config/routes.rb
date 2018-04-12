@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   delete '/events/:id' => 'events#destroy'
   get '/forums' => 'forums#index'
   post '/forums' => 'forums#create'
+  patch '/forums/:id' => 'forums#update'
+  delete '/forums/:id' => 'forums#destroy'
 end

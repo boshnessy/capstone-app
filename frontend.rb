@@ -93,26 +93,25 @@ while true
   p "[5] Delete an event"
   p "[6] View forum"
   p "[7] Comment on an event"
+  p "[8] Edit a comment on an event"
+  p "[9] Delete a comment"
   user_input = gets.chomp
 
     # LOGIN
   if user_input == "1"
-    p "Enter email"
-    input_email = gets.chomp
-    p "Enter password"
-    input_password = gets.chomp
+    # p "Enter email"
+    # input_email = gets.chomp
+    # p "Enter password"
+    # input_password = gets.chomp
 
     response = Unirest.post("localhost:3000/user_token",
       parameters: {
         auth: {
-          email: input_email,
-          password: input_password
+          email: "boshnessy@gmail.com",
+          password: "password"
         }
       }
     )
-
-    p response.body
-
     jwt = response.body["jwt"]
     Unirest.default_header("Authorization", "Bearer #{jwt}")
 
@@ -123,12 +122,21 @@ while true
     p response.body
   elsif user_input == "3"
     # EVENT CREATE ACTION
+    p "Enter date of event"
+    date = gets.chomp
+    p "Enter artist of event"
+    artist = gets.chomp
+    p "Enter venue of event"
+    venue = gets.chomp
+    p "Enter city of event"
+    city = gets.chomp
+
     response = Unirest.post("localhost:3000/events", 
       parameters: {
-        date: "Apr 8, 2018",
-        artist: "me",
-        venue: "condo",
-        city: "Chicago"
+        date: date,
+        artist: artist,
+        venue: venue,
+        city: city
       }
     )
 
@@ -168,11 +176,40 @@ while true
     p response.body
   elsif user_input == "7"
     # FORUM CREATE ACTION
+    p "Enter comment"
+    comment = gets.chomp
+    p "Enter event id"
+    event_id = gets.chomp
+
     response = Unirest.post("localhost:3000/forums", 
       parameters: {
-        comment: "sweet",
-        event_id: 2
+        comment: comment,
+        event_id: event_id
       }
     )
     p response.body
+  elsif user_input == "8"
+    # FORUM UPDATE ACTION
+    p "Enter the id of the comment you wish to update"
+    id = gets.chomp
+    p "Enter comment"
+    comment = gets.chomp
+    p "Enter event id"
+    event_id = gets.chomp
+
+    response = Unirest.patch("localhost:3000/forums/#{id}", 
+      parameters: {
+        comment: comment,
+        event_id: event_id
+      }
+    )
+    p response.body
+  elsif user_input == "9"
+    # FORUM DESTROY ACTION
+    p "Enter the id of the comment you wish to delete"
+    id = gets.chomp
+
+    response = Unirest.delete("localhost:3000/forums/#{id}")
+    p response.body
+  end
 end
