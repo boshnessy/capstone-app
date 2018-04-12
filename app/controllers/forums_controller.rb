@@ -1,4 +1,5 @@
 class ForumsController < ApplicationController
+  before_action :authenticate_user, except: [:index, :show]
 
   def index
     forums = Forum.all
