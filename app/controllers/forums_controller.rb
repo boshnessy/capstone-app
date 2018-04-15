@@ -15,7 +15,7 @@ class ForumsController < ApplicationController
     if forum.save
       render json: forum.as_json
     else
-      render json: {errors: forum.errors.full_messages}
+      render json: {errors: forum.errors.full_messages}, status: :bad_request
     end
   end
 
@@ -30,7 +30,7 @@ class ForumsController < ApplicationController
       )
       render json: forum.as_json
     else
-      render json: {errors: forum.errors.full_messages}
+      render json: {errors: forum.errors.full_messages}, status: :bad_request
     end
   end
 
@@ -41,7 +41,7 @@ class ForumsController < ApplicationController
     if forum.destroy
       render json: {message: "comment deleted"}
     else
-      render json: {errors: forum.errors.full_messages}
+      render json: {errors: forum.errors.full_messages}, status: :bad_request
     end
   end
 end

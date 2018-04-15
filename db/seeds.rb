@@ -5,3 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# # artists
+# 100.times do
+#   Artist.create!(
+#    name: Faker::RockBand.name
+#   )
+# end
+
+# # events
+# 100.times do
+#   Event.create!(
+#     date: Faker::Date.between(20.days.ago, 1.year.from_now),
+#     venue: Faker::Company.name,
+#     city: Faker::Address.city,
+#     state: Faker::Address.state
+#   )
+# end
+
+# # artist_events
+# events = Event.all
+# events.each do
+#   ArtistEvent.create!(
+#     artist_id: artist.id,
+#     event_id: event.id
+#   )
+# end
+# # didn't work

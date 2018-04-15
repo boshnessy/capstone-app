@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     if event.save
       render json: event.as_json
     else
-      render json: {errors: event.errors.full_messages}
+      render json: {errors: event.errors.full_messages}, status: :bad_request
     end
   end
 
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
       )
       render json: event.as_json
     else
-      render json: {errors: event.errors.full_messages}
+      render json: {errors: event.errors.full_messages}, status: :bad_request
     end
   end
 
@@ -52,7 +52,7 @@ class EventsController < ApplicationController
     if event.destroy
       render json: {message: "event deleted"}
     else
-      render json: {errors: event.errors.full_messages}
+      render json: {errors: event.errors.full_messages}, status: :bad_request
     end
   end
 end
