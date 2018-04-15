@@ -95,6 +95,7 @@ while true
   p "[7] Comment on an event"
   p "[8] Edit a comment on an event"
   p "[9] Delete a comment"
+  p "[10] Search for an event"
   user_input = gets.chomp
 
     # LOGIN
@@ -211,5 +212,39 @@ while true
 
     response = Unirest.delete("localhost:3000/forums/#{id}")
     p response.body
+  elsif user_input == "10"
+    # SEARCH FOR EVENT
+    p "What would you like to search by?"
+    p "[1] Artist"
+    p "[2] Venue"
+    p "[3] City"
+    p "[4] State"
+    user_input = gets.chomp
+
+    if user_input == "1"
+      p "Enter the artist you wish to search for"
+      search_term = gets.chomp
+
+      response = Unirest.get("localhost:3000/artists?search=#{search_term}")
+      p response.body
+    elsif user_input == "2"
+      p "Enter the venue you wish to search for"
+      sort_by_venue = gets.chomp
+
+      response = Unirest.get("localhost:3000/events?venue=#{sort_by_venue}")
+      p response.body
+    elsif user_input == "3"
+      p "Enter the city you wish to search for"
+      sort_by_city = gets.chomp
+
+      response = Unirest.get("localhost:3000/events?city=#{sort_by_city}")
+      p response.body
+    elsif user_input == "4"
+      p "Enter the state you wish to search for"
+      sort_by_state = gets.chomp
+
+      response = Unirest.get("localhost:3000/events?state=#{sort_by_state}")
+      p response.body
+    end
   end
 end

@@ -2,9 +2,20 @@ class EventsController < ApplicationController
   before_action :authenticate_user, except: [:index, :show]
 
   def index
-    events = Event.all
-    # events = Event.where(artist: artist)
-    # events = Event.where(venue: venue)
+    # events = Event.all
+    sort_by_venue = params[:venue]
+    sort_by_city = params[:city]
+    sort_by_state = params[:state]
+
+    p sort_by_venue
+    if sort_by_venue
+      events = Event.all.where("venue LIKE ?", "%#{sort_by_venue}%")
+    elsif sort_by_city
+      events = Event.all.where("city LIKE ?", "%#{sort_by_city}%")
+    elsif sort_by_state
+      events = Event.all.where("state LIKE ?", "%#{sort_by_state}%")
+    end
+    
     render json: events.as_json
   end
 

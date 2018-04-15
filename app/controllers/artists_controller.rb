@@ -1,6 +1,8 @@
 class ArtistsController < ApplicationController
   def index
-    artists = Artist.all
+    # artists = Artist.all
+    search_term = params[:search]
+    artists = Artist.all.order(:id).where("name LIKE ?", "%#{search_term}%")
     render json: artists.as_json
   end
 
