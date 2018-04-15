@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   post '/forums' => 'forums#create'
   patch '/forums/:id' => 'forums#update'
   delete '/forums/:id' => 'forums#destroy'
+  get '/artists' => 'artists#index'
+  post 'artists' => 'artists#create'
 end
