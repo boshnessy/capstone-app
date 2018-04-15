@@ -11,4 +11,12 @@ Rails.application.routes.draw do
   delete '/forums/:id' => 'forums#destroy'
   get '/artists' => 'artists#index'
   post 'artists' => 'artists#create'
+  get '/setlists' => 'setlists#index'
+  post '/setlists' => 'setlists#create'
+  patch '/setlists/:id' => 'setlists#update'
+  delete '/setlists/:id' => 'setlists#destroy'
+  get '/songs' => 'songs#index'
+  post '/songs' => 'songs#create'
+  patch '/songs/:id' => 'songs#update'
+  delete '/songs/:id' => 'songs#destroy'
 end
