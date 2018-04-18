@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def create
+    p "*" * 50
+    p current_user
+    p "*" * 50
+
     user = User.new(
       username: params[:username],
       email: params[:email],
