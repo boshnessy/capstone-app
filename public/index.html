@@ -13,6 +13,7 @@
     <a href="/#/signup">Signup</a>
     <a href="/#/login">Login</a>
     <a href="/#/logout">Logout</a>
+    <a href="/#/events">Events</a>
     <router-view></router-view>
 
   </div>
@@ -80,5 +81,16 @@
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
 
+  </div>
+</template>
+
+<template id="events-index-page">
+  <div>
+    <div v-for="event in events">
+      <h3>{{ event.date }}</h3>
+      <h4>{{ event.venue }}</h4>
+      <h5>{{ event.city }}, {{ event.state }}</h5>
+      <hr>
+    </div>
   </div>
 </template>

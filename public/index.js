@@ -1,4 +1,32 @@
 /* global Vue, VueRouter, axios */
+var EventsIndexPage = {
+  template: "#events-index-page",
+  data: function() {
+    return {
+      message: "ShareTheExperience",
+      events: []
+    };
+  },
+  created: function() {
+    axios.get("/events").then(function(response) {
+      this.events = response.data;
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
+var HomePage = {
+  template: "#home-page",
+  data: function() {
+    return {
+      message: "ShareTheExperience"
+    };
+  },
+  created: function() {},
+  methods: {},
+  computed: {}
+};
 
 var SignupPage = {
   template: "#signup-page",
@@ -75,24 +103,13 @@ var LogoutPage = {
   }
 };
 
-var HomePage = {
-  template: "#home-page",
-  data: function() {
-    return {
-      message: "ShareTheExperience"
-    };
-  },
-  created: function() {},
-  methods: {},
-  computed: {}
-};
-
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
-    { path: "/logout", component: LogoutPage }
+    { path: "/logout", component: LogoutPage },
+    { path: "/events", component: EventsIndexPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
