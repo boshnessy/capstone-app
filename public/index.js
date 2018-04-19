@@ -1,10 +1,29 @@
 /* global Vue, VueRouter, axios */
+
+var EventShowPage = {
+  template: "#event-show-page",
+  data: function() {
+    return {
+      message: "ShareTheExperience",
+      event: {}
+    };
+  },
+  created: function() {
+    axios.get("/events/" + this.$route.params.id).then(function(response) {
+      this.event = response.data;
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
 var EventsIndexPage = {
   template: "#events-index-page",
   data: function() {
     return {
       message: "ShareTheExperience",
-      events: []
+      events: [],
+      artists: []
     };
   },
   created: function() {
@@ -109,7 +128,8 @@ var router = new VueRouter({
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
-    { path: "/events", component: EventsIndexPage }
+    { path: "/events", component: EventsIndexPage },
+    { path: "/events/:id", component: EventShowPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
