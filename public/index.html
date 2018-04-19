@@ -31,7 +31,7 @@
   <div class="vue-component">
 
     <div class="container">
-      <h1>Signup</h1>
+      <h1>Sign Up</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
@@ -51,7 +51,11 @@
         <label>Password confirmation:</label>
         <input type="password" class="form-control" v-model="passwordConfirmation">
       </div>
-      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+      <div id="terms-of-service">
+        <p>Terms of Service: Content is subject to removal based on copyright or harassment complaints, or if content is deemed to be inappropriate.</p>
+        <p>By clicking Sign Up, you are agreeing to our Terms of Service.</p>
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Sign Up</button>
     </div>
 
   </div>
