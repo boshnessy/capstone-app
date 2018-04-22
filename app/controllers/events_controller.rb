@@ -29,12 +29,17 @@ class EventsController < ApplicationController
   def create
     event = Event.new(
       date: params[:date],
-      artist: params[:artist],
       venue: params[:venue],
-      city: params[:city]
+      city: params[:city],
+      state: params[:state]
     )
-
+    artist = Artist.find_by(name: params[:artist])
     if event.save
+      artist_event = ArtistEvent.new(
+        event_id: event.id,
+        artist_id: artist.id
+      )
+      artist_event.save
       render json: event.as_json
     else
       render json: {errors: event.errors.full_messages}, status: :bad_request
@@ -47,9 +52,9 @@ class EventsController < ApplicationController
 
     if event.update(
         date: params[:date],
-        artist: params[:artist],
         venue: params[:venue],
-        city: params[:city]
+        city: params[:city],
+        state: params[:state]
       )
       render json: event.as_json
     else

@@ -1,5 +1,36 @@
 /* global Vue, VueRouter, axios */
 
+var EventsNewPage = {
+  template: "#events-new-page",
+  data: function() {
+    return {
+      date: "",
+      artist: "",
+      venue: "",
+      city: "",
+      state: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        date: this.date,
+        artist: this.artist,
+        venue: this.venue,
+        city: this.city,
+        state: this.state
+      };
+      axios.post("/events", params).then(function(response) {
+        router.push("/events");
+      }).catch(function(error) {
+        this.errors = error.response.data.errors;
+      }.bind(this));
+    }
+  },
+  computed: {}
+};
+
 var EventShowPage = {
   template: "#event-show-page",
   data: function() {
@@ -23,7 +54,7 @@ var EventsIndexPage = {
     return {
       message: "ShareTheExperience",
       events: [],
-      artists: []
+      artist: {}
     };
   },
   created: function() {
@@ -129,6 +160,7 @@ var router = new VueRouter({
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
     { path: "/events", component: EventsIndexPage },
+    { path: "/events/new", component: EventsNewPage },
     { path: "/events/:id", component: EventShowPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
