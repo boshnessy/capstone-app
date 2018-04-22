@@ -11,7 +11,10 @@ class Event < ApplicationRecord
       venue: venue,
       city: city,
       state: state,
-      artists: artists.as_json
+      artists: artists.as_json,
+      forums: forums.as_json,
+      setlists: setlists.as_json,
+      images: images
     }
   end
 end

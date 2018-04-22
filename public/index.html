@@ -89,6 +89,7 @@
   <div>
     <div v-for="event in events">
       <h1>{{ event.date }}</h1>
+      <img v-bind:src="event.image_url" width="300px">
       <h2>{{ event.artists }}</h2>
       <h4>{{ event.city }}, {{ event.state }}</h4>
       <h4>{{ event.venue }}</h4>
@@ -99,11 +100,17 @@
 
 <template id="event-show-page">
   <div>
-    <h1>{{ event.date }}</h1>
+    <div v-for="image in event.images">
+      <!-- {{ image.url }} -->
+      <img v-bind:src="image.url" width="300px">
+
+    </div>
+   <!--  <h1>{{ event.date }}</h1>
+    <img v-bind:src="event.image_url" width="300px">
     <h2>{{ event.artists }}</h2>
     <h4>{{ event.city }}, {{ event.state }}</h4>
     <h4>{{ event.venue }}</h4>
-    <hr>
+    <h5>{{ event.setlists }}</h5> -->
   </div>
 </template>
 

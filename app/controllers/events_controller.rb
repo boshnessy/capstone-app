@@ -33,16 +33,28 @@ class EventsController < ApplicationController
       city: params[:city],
       state: params[:state]
     )
-    artist = Artist.find_by(name: params[:artist])
-    if event.save
-      artist_event = ArtistEvent.new(
-        event_id: event.id,
-        artist_id: artist.id
-      )
-      artist_event.save
-      render json: event.as_json
+    if artist = Artist.find_by(name: params[:artist])
+      if event.save
+        artist_event = ArtistEvent.new(
+          event_id: event.id,
+          artist_id: artist.id
+        )
+        artist_event.save
+        render json: event.as_json
+      else
+        render json: {errors: event.errors.full_messages}, status: :bad_request
+      end
     else
-      render json: {errors: event.errors.full_messages}, status: :bad_request
+      # artist = Artist.new(name: params[:name])
+      if event.save
+        artist = Artist.new(
+          name: params[:artist]
+        )
+        artist.save
+        render json: event.as_json
+      else
+        render json: {errors: event.errors.full_messages}, status: :bad_request
+      end
     end
   end
 
