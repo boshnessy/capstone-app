@@ -7,8 +7,7 @@ class Artist < ApplicationRecord
 
   def as_json
     {
-      name: name,
-      images: images.as_json
+      name: name
     }
   end
 end

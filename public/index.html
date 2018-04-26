@@ -13,7 +13,6 @@
     <a href="/#/signup">Signup</a>
     <a href="/#/login">Login</a>
     <a href="/#/logout">Logout</a>
-    <a href="/#/events">Events</a>
     <a href="/#/events/new">Create an Event</a>
     <router-view></router-view>
 
@@ -25,6 +24,18 @@
   <div class="vue-component">
 
     <h1>{{ message }}</h1>
+    <p>Search by artist: <input v-model="searchArtist"></p>
+    <p>Search by venue: <input v-model="searchVenue"></p>
+    <p>Search by city: <input v-model="searchCity"></p>
+    
+    <div v-for="event in events" v-if="isValidEvent(event)">
+      <h1>{{ event.date }}</h1>
+      <!-- <img v-bind:src="image.url" width="300px"> -->
+      <h2>{{ event.artists }}</h2>
+      <h4>{{ event.city }}, {{ event.state }}</h4>
+      <h4>{{ event.venue }}</h4>
+      <hr>
+    </div>
 
   </div>
 </template>
@@ -85,32 +96,16 @@
   </div>
 </template>
 
-<template id="events-index-page">
-  <div>
-    <div v-for="event in events">
-      <h1>{{ event.date }}</h1>
-      <img v-bind:src="event.image_url" width="300px">
-      <h2>{{ event.artists }}</h2>
-      <h4>{{ event.city }}, {{ event.state }}</h4>
-      <h4>{{ event.venue }}</h4>
-      <hr>
-    </div>
-  </div>
-</template>
-
 <template id="event-show-page">
   <div>
     <div v-for="image in event.images">
-      <!-- {{ image.url }} -->
+      <h1>{{ event.date }}</h1>
       <img v-bind:src="image.url" width="300px">
-
+      <h2>{{ event.artists }}</h2>
+      <h4>{{ event.city }}, {{ event.state }}</h4>
+      <h4>{{ event.venue }}</h4>
+      <h5>{{ event.setlists }}</h5>
     </div>
-   <!--  <h1>{{ event.date }}</h1>
-    <img v-bind:src="event.image_url" width="300px">
-    <h2>{{ event.artists }}</h2>
-    <h4>{{ event.city }}, {{ event.state }}</h4>
-    <h4>{{ event.venue }}</h4>
-    <h5>{{ event.setlists }}</h5> -->
   </div>
 </template>
 

@@ -48,11 +48,14 @@ var EventShowPage = {
   computed: {}
 };
 
-var EventsIndexPage = {
-  template: "#events-index-page",
+var HomePage = {
+  template: "#home-page",
   data: function() {
     return {
       message: "ShareTheExperience",
+      searchArtist: "",
+      searchVenue: "",
+      searchCity: "",
       events: [],
       artist: {}
     };
@@ -62,19 +65,14 @@ var EventsIndexPage = {
       this.events = response.data;
     }.bind(this));
   },
-  methods: {},
-  computed: {}
-};
-
-var HomePage = {
-  template: "#home-page",
-  data: function() {
-    return {
-      message: "ShareTheExperience"
-    };
+  methods: {
+    isValidEvent: function(inputEvent) {
+      // var validArtist = inputEvent.artist.toLowerCase().includes(this.searchArtist.toLowerCase());
+      var validVenue = inputEvent.venue.toLowerCase().includes(this.searchVenue.toLowerCase());
+      var validCity = inputEvent.city.toLowerCase().includes(this.searchCity.toLowerCase());
+      return validVenue && validCity;
+    }
   },
-  created: function() {},
-  methods: {},
   computed: {}
 };
 
@@ -159,7 +157,6 @@ var router = new VueRouter({
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
-    { path: "/events", component: EventsIndexPage },
     { path: "/events/new", component: EventsNewPage },
     { path: "/events/:id", component: EventShowPage }
   ],
