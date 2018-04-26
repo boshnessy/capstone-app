@@ -67,7 +67,7 @@ var HomePage = {
   },
   methods: {
     isValidEvent: function(inputEvent) {
-      // var validArtist = inputEvent.artist.toLowerCase().includes(this.searchArtist.toLowerCase());
+      // var validArtist = inputEvent.artist.includes(this.searchArtist);
       var validVenue = inputEvent.venue.toLowerCase().includes(this.searchVenue.toLowerCase());
       var validCity = inputEvent.city.toLowerCase().includes(this.searchCity.toLowerCase());
       return validVenue && validCity;
