@@ -52,7 +52,6 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "ShareTheExperience",
       searchArtist: "",
       searchVenue: "",
       searchCity: "",
