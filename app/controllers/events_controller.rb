@@ -51,6 +51,11 @@ class EventsController < ApplicationController
           name: params[:artist]
         )
         artist.save
+        artist_event = ArtistEvent.new(
+          event_id: event.id,
+          artist_id: artist.id
+        )
+        artist_event.save
         render json: event.as_json
       else
         render json: {errors: event.errors.full_messages}, status: :bad_request

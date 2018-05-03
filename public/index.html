@@ -879,20 +879,28 @@
                            <h5 class="card-title mb-4">Event Info</h5>
                            <div class="form-group">
                               <label>Date <span class="text-danger">*</span></label>
-                              <input type="text" class="form-control" placeholder="Enter Date">
+                              <input type="text" v-model="date" class="form-control" placeholder="Enter Date">
                            </div>
                            <div class="form-group">
                               <label>Artist <span class="text-danger">*</span></label>
-                              <input type="text" class="form-control" placeholder="Enter Artist">
+                              <input type="text" v-model="artist" class="form-control" placeholder="Enter Artist">
                            </div>
                            <div class="form-group">
                               <label>Venue <span class="text-danger">*</span></label>
-                              <input type="text" class="form-control" placeholder="Enter Venue">
+                              <input type="text" v-model="venue" class="form-control" placeholder="Enter Venue">
                            </div>
                            <div class="form-group">
                               <label>City <span class="text-danger">*</span></label>
-                              <input type="text" class="form-control" placeholder="Enter City, State">
+                              <input type="text" v-model="city" class="form-control" placeholder="Enter City">
                            </div>
+                           <div class="form-group">
+                              <label>State <span class="text-danger">*</span></label>
+                              <input type="text" v-model="state" class="form-control" placeholder="Enter State">
+                           </div>
+                          <!--  <div class="form-group">
+                              <label>Artist Image URL <span class="text-danger">*</span></label>
+                              <input type="text"  v-model="image" class="form-control" placeholder="Enter URL for Artist Image">
+                           </div> -->
                         </div>
                      </div>
                      <!-- <div class="card padding-card">

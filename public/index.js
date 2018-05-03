@@ -9,6 +9,7 @@ var EventNewPage = {
       venue: "",
       city: "",
       state: "",
+      // image: "",
       errors: []
     };
   },
@@ -19,7 +20,8 @@ var EventNewPage = {
         artist: this.artist,
         venue: this.venue,
         city: this.city,
-        state: this.state
+        state: this.state,
+        // image: this.image
       };
       axios.post("/events", params).then(function(response) {
         router.push("/");
