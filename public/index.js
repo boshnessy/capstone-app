@@ -1,7 +1,7 @@
 /* global Vue, VueRouter, axios */
 
-var EventsNewPage = {
-  template: "#events-new-page",
+var EventNewPage = {
+  template: "#event-new-page",
   data: function() {
     return {
       date: "",
@@ -22,7 +22,7 @@ var EventsNewPage = {
         state: this.state
       };
       axios.post("/events", params).then(function(response) {
-        router.push("/events");
+        router.push("/");
       }).catch(function(error) {
         this.errors = error.response.data.errors;
       }.bind(this));
@@ -156,7 +156,7 @@ var router = new VueRouter({
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
-    { path: "/events/new", component: EventsNewPage },
+    { path: "/events/new", component: EventNewPage },
     { path: "/events/:id", component: EventShowPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
