@@ -42,9 +42,10 @@ var EventShowPage = {
     };
   },
   created: function() {
-    axios.get("/events/" + this.$route.params.id).then(function(response) {
-      this.event = response.data;
-    }.bind(this));
+    console.log("hi");
+    // axios.get("/events/" + this.$route.params.id).then(function(response) {
+    //   this.event = response.data;
+    // }.bind(this));
   },
   methods: {},
   computed: {}
@@ -121,6 +122,7 @@ var LoginPage = {
   },
   methods: {
     submit: function() {
+      console.log("before axios")
       var params = {
         auth: { email: this.email, password: this.password }
       };
@@ -130,7 +132,9 @@ var LoginPage = {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
+          console.log("above");
           router.push("/");
+          console.log("below");
         })
         .catch(
           function(error) {

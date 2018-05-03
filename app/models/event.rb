@@ -7,6 +7,7 @@ class Event < ApplicationRecord
 
   def as_json
     {
+      id: id,
       date: date,
       venue: venue,
       city: city,
