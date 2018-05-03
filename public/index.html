@@ -692,13 +692,13 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card sidebar-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-4">About Agent</h5>
+                        <h5 class="card-title mb-4">{{ event.artists }}</h5>
                         <div id="featured-properties">
                            <div class="carousel-inner">
                               <div class="carousel-item active">
-                                 <div class="card card-list">
+                                 <div class="card card-list" v-for="image in event.images">
                                     <a href="#">
-                                       <!-- <img class="card-img-top" v-bind:src="image.url" width="300px" alt="Card image cap"> -->
+                                       <img class="card-img-top" v-bind:src="image.url" width="300px" alt="Card image cap">
                                        <div class="card-body pb-0">
                                           <h5 class="card-title mb-4">Gurdeep Osahan</h5>
                                           <h6 class="card-subtitle mb-3 text-muted"><i class="mdi mdi-phone"></i> (950) 491-570-180</h6>
@@ -785,38 +785,6 @@
                               </div>
                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="card sidebar-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">Mortage Calculator</h5>
-                        <form name="sentMessage">
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Sale Price <span class="text-danger">*</span></label>
-                                 <input type="text" placeholder="$" class="form-control" required>
-                              </div>
-                           </div>
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Down payment <span class="text-danger">*</span></label>
-                                 <input type="text" placeholder="$"  class="form-control" required>
-                              </div>
-                           </div>
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Term <span class="text-danger">*</span></label>
-                                 <input type="text" placeholder="Years"  class="form-control" required>
-                              </div>
-                           </div>
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Interest Rate <span class="text-danger">*</span></label>
-                                 <input type="text" placeholder="%" class="form-control" required>
-                              </div>
-                           </div>
-                           <button type="submit" class="btn btn-success btn-block">CALCULATE</button>
-                        </form>
                      </div>
                   </div>
                </div>

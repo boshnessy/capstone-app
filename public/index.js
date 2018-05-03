@@ -42,10 +42,9 @@ var EventShowPage = {
     };
   },
   created: function() {
-    console.log("hi");
-    // axios.get("/events/" + this.$route.params.id).then(function(response) {
-    //   this.event = response.data;
-    // }.bind(this));
+    axios.get("/events/" + this.$route.params.id).then(function(response) {
+      this.event = response.data;
+    }.bind(this));
   },
   methods: {},
   computed: {}
