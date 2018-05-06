@@ -46,7 +46,18 @@ var EventShowPage = {
       this.event = response.data;
     }.bind(this));
   },
-  methods: {},
+  methods: {
+    submit: function() {
+      var params = {
+        user_id: this.user_id,
+        event_id: this.event_id,
+        comment: this.comment 
+      };
+      axios.post("/forums", params).then(function(response) {
+        router.push("/events/:id");
+      }.bind(this));
+    }
+  },
   computed: {}
 };
 
