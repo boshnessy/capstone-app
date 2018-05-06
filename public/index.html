@@ -441,12 +441,12 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-8 col-md-8">
-                     <h1 class="text-white">{{ event.artists }}</h1>
+                     <h1 class="text-white">{{ event.artists[0].name }}</h1>
                      <h4 class="text-white"><i class="mdi mdi-home-map-marker"></i> {{ event.city }}, {{ event.state }}</h4>
                      <h6 class="text-white"><i class="mdi mdi-home-map-marker"></i> {{ event.venue }}</h6>
                   </div>
                   <div class="col-lg-4 col-md-4 text-right">
-                     <h2 class="text-success">{{ event.date }}</h2>
+                     <h1 class="text-white">{{ event.date }}</h1>
                   </div>
                </div><!-- 
                <hr>
@@ -473,73 +473,6 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-8 col-md-8">
-                  <div class="card padding-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-3">Description</h5>
-                        <div class="row">
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-move-resize-variant"></i>
-                                 <strong>Area:</strong>
-                                 <p class="mb-0">1270 aq ft</p>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-sofa"></i>
-                                 <strong>Beds:</strong>
-                                 <p class="mb-0">4 Bedrooms</p>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-hot-tub"></i>
-                                 <strong>Baths:</strong>
-                                 <p class="mb-0">2 Bathrooms</p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-garage"></i>
-                                 <strong>Rooms:</strong>
-                                 <p class="mb-0">6 Rooms</p>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-floor-plan"></i>
-                                 <strong>Floors:</strong>
-                                 <p class="mb-0">4 Floors</p>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-car-convertible"></i>
-                                 <strong>Garage:</strong>
-                                 <p class="mb-0">2 Garages</p>
-                              </div>
-                           </div>
-                        </div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,</p>
-                        <p class="mb-0">is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
-                     </div>
-                  </div>
-                  <div class="card padding-card">
-                     <div class="card-body" v-for="setlist in event.setlists">
-                        <h5 class="card-title mb-4">Setlist</h5>
-                           <div class="media-body">
-                              <ul class="sidebar-card-list">
-                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists[0].songs[0].title }}</li>
-                              </ul>
-                           </div>
-                           <div class="form-group">
-                             <input type="text" class="form-control" placeholder="Add Song to Setlist" v-model="song">
-                           </div>
-                           <button type="submit" class="btn btn-success" v-on:click="submit()">Add Song</button>
-                     </div>
-                  </div>
                   <!-- <div class="card padding-card">
                      <div class="card-body">
                         <h5 class="card-title mb-4">Video</h5>
@@ -602,11 +535,11 @@
                   </div>
                   <div class="card padding-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-4">Leave a Comment</h5>
+                        <h5 class="card-title mb-4">Talk to other {{ event.artists[0].name }} fans!</h5>
                         <form name="sentMessage">
                            <div class="control-group form-group">
                               <div class="controls">
-                                 <input type="text" class="form-control" v-model="comment">
+                                 <input type="text" class="form-control" placeholder="Add Comment to Forum" v-model="comment">
                                  <!-- <textarea rows="5" cols="100" class="form-control"></textarea> -->
                               </div>
                            </div>
@@ -618,7 +551,7 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card sidebar-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-4">{{ event.artists }}</h5>
+                        <h5 class="card-title mb-4">{{ event.artists[0].name }}</h5>
                         <div id="featured-properties">
                            <div class="carousel-inner">
                               <div class="carousel-item active">
@@ -633,36 +566,20 @@
                      </div>
                   </div>
                   <div class="card sidebar-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">Request a Showing</h5>
-                        <form name="sentMessage">
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Your Name <span class="text-danger">*</span></label>
-                                 <input type="text" placeholder="Enter Your Name" class="form-control" required>
-                              </div>
+                     <div class="card padding-card">
+                     <div class="card-body" v-for="setlist in event.setlists">
+                        <h5 class="card-title mb-4">Setlist</h5>
+                           <div class="media-body">
+                              <ul class="sidebar-card-list">
+                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists[0].songs[0].title }}</li>
+                              </ul>
                            </div>
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Your Email <span class="text-danger">*</span></label>
-                                 <input type="text" placeholder="Enter Your Email"  class="form-control" required>
-                              </div>
+                           <div class="form-group">
+                             <input type="text" class="form-control" placeholder="Add Song to Setlist" v-model="song">
                            </div>
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Phone <span class="text-danger">*</span></label>
-                                 <input type="text" placeholder="Enter Phone Number"  class="form-control" required>
-                              </div>
-                           </div>
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Message <span class="text-danger">*</span></label>
-                                 <textarea rows="5" cols="50" class="form-control"></textarea>
-                              </div>
-                           </div>
-                           <button type="submit" class="btn btn-success btn-block">SEND REQUEST</button>
-                        </form>
+                           <button type="submit" class="btn btn-success" v-on:click="submit()">Add Song</button>
                      </div>
+                  </div>
                   </div>
                   <div class="card sidebar-card">
                      <div class="card-body">
