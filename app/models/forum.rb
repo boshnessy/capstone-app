@@ -5,6 +5,7 @@ class Forum < ApplicationRecord
 
   def as_json
     {
+      id: id,
       user: user.as_json,
       comment: comment
     }

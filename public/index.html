@@ -263,7 +263,7 @@
       </section>
       <!-- End Properties List -->
       <!-- Properties by City -->
-      <section class="section-padding bg-white">
+      <!-- <section class="section-padding bg-white">
          <div class="section-title text-center mb-5">
             <h2>Search By City</h2>
          </div>
@@ -318,7 +318,7 @@
                </div>
             </div>
          </div>
-      </section>
+      </section> -->
       <!-- End Properties by City -->
    </div>
 </template>
@@ -473,18 +473,12 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-8 col-md-8">
-                  <!-- <div class="card padding-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">Video</h5>
-                        <a href="#"><img class="rounded img-fluid" src="img/video.jpg" alt="Card image cap"></a>
-                     </div>
-                  </div> -->
                   <div class="card padding-card reviews-card">
-                     <div class="card-body" v-for="forum in event.forums">
-                        <h5 class="card-title mb-4">3 Comments</h5>
-                        <div class="media mb-4">
+                     <div class="card-body">
+                        <h4 class="card-title mb-8">Forum</h4>
+                        <div class="media mb-8" v-for="forum in event.forums">
                            <div class="media-body">
-                              <h6 class="mt-0">{{ event.forums[0].user }}</h6>
+                              <h6 class="mt-0">{{ event.forums[0].user.username }}</h6>
                               <p>{{ event.forums[0].comment }}</p>
                            </div>
                         </div>
@@ -535,7 +529,7 @@
                   </div>
                   <div class="card padding-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-4">Talk to other {{ event.artists[0].name }} fans!</h5>
+                        <h4 class="card-title mb-4">Talk to other {{ event.artists[0].name }} fans!</h4>
                         <form name="sentMessage">
                            <div class="control-group form-group">
                               <div class="controls">
@@ -543,15 +537,16 @@
                                  <!-- <textarea rows="5" cols="100" class="form-control"></textarea> -->
                               </div>
                            </div>
-                           <button type="submit" class="btn btn-success" v-on:click="submit()">Add Comment</button>
+                           <button type="submit" class="btn btn-success" v-on:click="submitComment()">Add Comment</button>
                         </form>
                      </div>
                   </div>
                </div>
                <div class="col-lg-4 col-md-4">
+                  <!-- Start Artist Image -->
                   <div class="card sidebar-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-4">{{ event.artists[0].name }}</h5>
+                        <h4 class="card-title mb-4">{{ event.artists[0].name }}</h4>
                         <div id="featured-properties">
                            <div class="carousel-inner">
                               <div class="carousel-item active">
@@ -565,23 +560,29 @@
                         </div>
                      </div>
                   </div>
+                  <!-- End Artist Image -->
+                  <!-- Start Setlist -->
                   <div class="card sidebar-card">
                      <div class="card padding-card">
-                     <div class="card-body" v-for="setlist in event.setlists">
-                        <h5 class="card-title mb-4">Setlist</h5>
-                           <div class="media-body">
-                              <ul class="sidebar-card-list">
-                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists[0].songs[0].title }}</li>
-                              </ul>
-                           </div>
-                           <div class="form-group">
-                             <input type="text" class="form-control" placeholder="Add Song to Setlist" v-model="song">
-                           </div>
-                           <button type="submit" class="btn btn-success" v-on:click="submit()">Add Song</button>
+                        <div class="card-body">
+                           <h4 class="card-title mb-4">Setlist</h4>
+                              <div class="media-body" v-for="setlist in event.setlists">
+                                 <ul class="sidebar-card-list">
+                                    <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists }}</li>
+                                 </ul>
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Add Song to Setlist" v-model="title">
+                                    <input type="text" class="form-control" placeholder="Artist" v-model="artist_id">
+                                    <button type="submit" class="btn btn-success" v-on:click="submitSong()">Add Song</button>
+                                 </div>
+                              </div>
+                        </div>
                      </div>
                   </div>
+                  <!-- End Setlist -->
                   </div>
-                  <div class="card sidebar-card">
+                  <!-- Start Featured Properties -->
+                  <!-- <div class="card sidebar-card">
                      <div class="card-body">
                         <h5 class="card-title mb-4">Featured Properties</h5>
                         <div id="featured-properties" class="carousel slide" data-ride="carousel">
@@ -623,7 +624,8 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
+                  <!-- End Featured Properties -->
                </div>
             </div>
          </div>

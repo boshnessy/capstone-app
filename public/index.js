@@ -37,24 +37,42 @@ var EventShowPage = {
   template: "#event-show-page",
   data: function() {
     return {
-      message: "ShareTheExperience",
-      event: {}
+      event: {},
+      comment: "",
+      title: "",
+      forums: {},
+      setlists: {},
+      songs: {},
+      artist_id: ""
     };
   },
   created: function() {
     axios.get("/events/" + this.$route.params.id).then(function(response) {
       this.event = response.data;
+      console.log(this);
     }.bind(this));
   },
   methods: {
-    submit: function() {
+    submitComment: function() {
       var params = {
         user_id: this.user_id,
         event_id: this.event_id,
         comment: this.comment 
       };
       axios.post("/forums", params).then(function(response) {
-        router.push("/events/:id");
+        router.push("/events/" + this.$route.params.id);
+      }.bind(this));
+    },
+    submitSong: function() {
+      var params = {
+        title: this.title,
+        artist_id: this.artist_id,
+        setlist_id: this.event.setlists[0].id,
+        song_id: this.song_id,
+        event_id: this.event_id
+      };
+      axios.post("/songs", params).then(function(response) {
+        router.push("/events/" + this.$route.params.id);
       }.bind(this));
     }
   },

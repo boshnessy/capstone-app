@@ -6,6 +6,7 @@ class Setlist < ApplicationRecord
 
   def as_json
     {
+      id: id,
       songs: songs.as_json
     }
   end

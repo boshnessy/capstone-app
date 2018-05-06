@@ -6,9 +6,20 @@ class SetlistsController < ApplicationController
 
   def create
     setlist = Setlist.new(
-      event_id: params[:event_id]
+      event_id: params[:event_id],
+      artist_id: params[:artist_id]
     )
     if setlist.save
+      song = Song.new(
+        title: params[:title],
+        artist_id: artist.id
+      )
+      song.save
+      setlist_song = SetlistSong.new(
+        setlist_id: setlist.id,
+        song_id: song.id
+      )
+      setlist_song.save
       render json: setlist.as_json
     else
       render json: {errors: setlist.errors.full_messages}, status: :bad_request
