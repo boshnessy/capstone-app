@@ -472,6 +472,7 @@
       <section class="section-padding">
          <div class="container">
             <div class="row">
+               <!-- Start Forum -->
                <div class="col-lg-8 col-md-8">
                   <div class="card padding-card reviews-card">
                      <div class="card-body">
@@ -542,6 +543,7 @@
                      </div>
                   </div>
                </div>
+               <!-- End Forum -->
                <div class="col-lg-4 col-md-4">
                   <!-- Start Artist Image -->
                   <div class="card sidebar-card">
@@ -566,16 +568,20 @@
                      <div class="card padding-card">
                         <div class="card-body">
                            <h4 class="card-title mb-4">Setlist</h4>
-                              <div class="media-body" v-for="setlist in event.setlists">
-                                 <ul class="sidebar-card-list">
-                                    <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists }}</li>
-                                 </ul>
-                                 <div class="form-group">
+                           <div class="media-body" v-for="setlist in event.setlists">
+                              <ul class="sidebar-card-list">
+                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists }}</li>
+                              </ul>
+                           </div>
+                           <form name="sentMessage">
+                              <div class="control-group form-group">
+                                 <div class="controls">
                                     <input type="text" class="form-control" placeholder="Add Song to Setlist" v-model="title">
-                                    <input type="text" class="form-control" placeholder="Artist" v-model="artist_id">
-                                    <button type="submit" class="btn btn-success" v-on:click="submitSong()">Add Song</button>
+                                    <input type="text" class="form-control" placeholder="Artist ID" v-model="artist_id">
                                  </div>
                               </div>
+                              <button type="submit" class="btn btn-success" v-on:click="submitSong()">Add Song</button>
+                           </form>
                         </div>
                      </div>
                   </div>

@@ -49,28 +49,31 @@ var EventShowPage = {
   created: function() {
     axios.get("/events/" + this.$route.params.id).then(function(response) {
       this.event = response.data;
-      console.log(this);
     }.bind(this));
   },
   methods: {
     submitComment: function() {
       var params = {
         user_id: this.user_id,
-        event_id: this.event_id,
+        event_id: this.event.id,
         comment: this.comment 
       };
+      console.log("here are the params");
+      console.log(params);
       axios.post("/forums", params).then(function(response) {
         router.push("/events/" + this.$route.params.id);
+        console.log("here are the params");
+        console.log(params);
       }.bind(this));
     },
     submitSong: function() {
       var params = {
         title: this.title,
         artist_id: this.artist_id,
-        setlist_id: this.event.setlists[0].id,
-        song_id: this.song_id,
-        event_id: this.event_id
+        setlist_id: this.event.setlists[0].id
       };
+      console.log("here are the params");
+      console.log(params);
       axios.post("/songs", params).then(function(response) {
         router.push("/events/" + this.$route.params.id);
       }.bind(this));
