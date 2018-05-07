@@ -26,8 +26,14 @@ class SongsController < ApplicationController
     song = Song.find_by(id: id)
 
     if song.update(
-        event_id: params[:event_id]
+        title: params[:title],
+        artist_id: params[:artist_id]
       )
+      setlist_song = SetlistSong.new(
+        setlist_id: params[:setlist_id],
+        song_id: song.id
+      )
+      setlist_song.save
       render json: song.as_json
     else
       render json: {errors: song.errors.full_messages}, status: :bad_request

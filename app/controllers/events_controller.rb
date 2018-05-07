@@ -46,6 +46,11 @@ class EventsController < ApplicationController
           url: params[:image]
         )
         image.save
+        setlist = Setlist.new(
+          event_id: event.id,
+          artist_id: artist.id
+        )
+        setlist.save
         render json: event.as_json
       else
         render json: {errors: event.errors.full_messages}, status: :bad_request
@@ -68,6 +73,11 @@ class EventsController < ApplicationController
           url: params[:image]
         )
         image.save
+        setlist = Setlist.new(
+          event_id: event.id,
+          artist_id: artist.id
+        )
+        setlist.save
         render json: event.as_json
       else
         render json: {errors: event.errors.full_messages}, status: :bad_request
