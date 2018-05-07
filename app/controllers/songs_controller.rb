@@ -44,9 +44,3 @@ class SongsController < ApplicationController
     end
   end
 end
-
-# make new song
-# title, artist(id from url bar)
-
-# add to setlist_songs
-# song id setlist id(from ???)

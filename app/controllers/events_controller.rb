@@ -40,6 +40,12 @@ class EventsController < ApplicationController
           artist_id: artist.id
         )
         artist_event.save
+        image = Image.new(
+          artist_id: artist.id,
+          event_id: event.id,
+          url: params[:image]
+        )
+        image.save
         render json: event.as_json
       else
         render json: {errors: event.errors.full_messages}, status: :bad_request
@@ -56,6 +62,12 @@ class EventsController < ApplicationController
           artist_id: artist.id
         )
         artist_event.save
+        image = Image.new(
+          artist_id: artist.id,
+          event_id: event.id,
+          url: params[:image]
+        )
+        image.save
         render json: event.as_json
       else
         render json: {errors: event.errors.full_messages}, status: :bad_request

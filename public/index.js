@@ -9,7 +9,7 @@ var EventNewPage = {
       venue: "",
       city: "",
       state: "",
-      // image: "",
+      image: "",
       errors: []
     };
   },
@@ -21,7 +21,7 @@ var EventNewPage = {
         venue: this.venue,
         city: this.city,
         state: this.state,
-        // image: this.image
+        image: this.image
       };
       axios.post("/events", params).then(function(response) {
         router.push("/");
@@ -100,10 +100,10 @@ var HomePage = {
   },
   methods: {
     isValidEvent: function(inputEvent) {
-      // var validArtist = inputEvent.artist.includes(this.searchArtist);
+      var validArtist = inputEvent.artists.includes(this.searchArtist);
       var validVenue = inputEvent.venue.toLowerCase().includes(this.searchVenue.toLowerCase());
       var validCity = inputEvent.city.toLowerCase().includes(this.searchCity.toLowerCase());
-      return validVenue && validCity;
+      return validVenue && validCity; // && validArtist
     }
   },
   computed: {}

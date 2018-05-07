@@ -45,3 +45,7 @@ class ForumsController < ApplicationController
     end
   end
 end
+# make new comment i.e. forum
+# user_id = current user.id
+# comment = params
+# event_id = from url bar
