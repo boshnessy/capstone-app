@@ -9,12 +9,13 @@ class ForumsController < ApplicationController
   def create
     forum = Forum.new(
       comment: params[:comment],
-      user_id: current_user.id,
+      user_id: 1,
       event_id: params[:event_id]
     )
     if forum.save
       render json: forum.as_json
     else
+      p forum.errors.full_messages
       render json: {errors: forum.errors.full_messages}, status: :bad_request
     end
   end

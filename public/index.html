@@ -379,7 +379,7 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h5 class="card-title mb-4">Login</h5>
-                        <form>
+                        <!-- <form> -->
                            <ul>
                               <li class="text-danger" v-for="error in errors">{{ error }}</li>
                            </ul>
@@ -398,7 +398,7 @@
                               </div>
                            </div>
                            <button type="submit" class="btn btn-success btn-block btn-primary" v-on:click="submit()">LOG IN</button>
-                        </form>
+                        <!-- </form> -->
                         <div class="mt-4 text-center">
                            <a href="forget.html">Forget your password?</a>
                         </div>
@@ -535,7 +535,9 @@
                            <div class="control-group form-group">
                               <div class="controls">
                                  <input type="text" class="form-control" placeholder="Add Comment to Forum" v-model="comment">
-                                 <!-- <textarea rows="5" cols="100" class="form-control"></textarea> -->
+                              </div>
+                              <div class="controls">
+                                 <input type="text" class="form-control" placeholder="Event ID" v-model="event_id">
                               </div>
                            </div>
                            <button type="submit" class="btn btn-success" v-on:click="submitComment()">Add Comment</button>
@@ -570,7 +572,7 @@
                            <h4 class="card-title mb-4">Setlist</h4>
                            <div class="media-body" v-for="setlist in event.setlists">
                               <ul class="sidebar-card-list">
-                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists }}</li>
+                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists}}</li>
                               </ul>
                            </div>
                            <form name="sentMessage">

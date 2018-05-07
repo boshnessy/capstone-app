@@ -43,7 +43,8 @@ var EventShowPage = {
       forums: {},
       setlists: {},
       songs: {},
-      artist_id: ""
+      artist_id: "",
+      event_id: ""
     };
   },
   created: function() {
@@ -55,7 +56,7 @@ var EventShowPage = {
     submitComment: function() {
       var params = {
         user_id: this.user_id,
-        event_id: this.event.id,
+        event_id: this.event_id,
         comment: this.comment 
       };
       console.log("here are the params");
@@ -100,7 +101,8 @@ var HomePage = {
   },
   methods: {
     isValidEvent: function(inputEvent) {
-      var validArtist = inputEvent.artists.includes(this.searchArtist);
+      console.log(inputEvent)
+      var validArtist = inputEvent.artist.includes(this.searchArtist);
       var validVenue = inputEvent.venue.toLowerCase().includes(this.searchVenue.toLowerCase());
       var validCity = inputEvent.city.toLowerCase().includes(this.searchCity.toLowerCase());
       return validVenue && validCity; // && validArtist
@@ -160,15 +162,16 @@ var LoginPage = {
       axios
         .post("/user_token", params)
         .then(function(response) {
-          axios.defaults.headers.common["Authorization"] =
-            "Bearer " + response.data.jwt;
-          localStorage.setItem("jwt", response.data.jwt);
           console.log("above");
-          router.push("/");
+          axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
+          console.log(response.data);
+          // router.push("/");
           console.log("below");
         })
         .catch(
           function(error) {
+            console.log("in the errors")
             this.errors = ["Invalid email or password."];
             this.email = "";
             this.password = "";
