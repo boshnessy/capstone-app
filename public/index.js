@@ -102,10 +102,10 @@ var HomePage = {
   methods: {
     isValidEvent: function(inputEvent) {
       console.log(inputEvent)
-      var validArtist = inputEvent.artist.includes(this.searchArtist);
+      var validArtist = inputEvent.artists[0].name.includes(this.searchArtist);
       var validVenue = inputEvent.venue.toLowerCase().includes(this.searchVenue.toLowerCase());
       var validCity = inputEvent.city.toLowerCase().includes(this.searchCity.toLowerCase());
-      return validVenue && validCity; // && validArtist
+      return validArtist && validVenue && validCity;
     }
   },
   computed: {}
