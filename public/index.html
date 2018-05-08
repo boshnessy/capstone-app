@@ -478,54 +478,12 @@
                      <div class="card-body">
                         <h4 class="card-title mb-8">Forum</h4>
                         <div class="media mb-8" v-for="forum in event.forums">
+                           <img class="d-flex mr-3 rounded-circle" src="img/user/unknown.jpg" alt="">
                            <div class="media-body">
-                              <h6 class="mt-0">{{ event.forums }}</h6>
+                              <h6 class="mt-0">{{ event.forums }} <small>{{ event.forums[0].created_at }}</small></h6>
                               <p>{{ event.forums[0].comment }}</p>
                            </div>
                         </div>
-                        <!-- <div class="media">
-                           <img class="d-flex mr-3 rounded-circle" src="img/user/2.jpg" alt="">
-                           <div class="media-body">
-                              <h5 class="mt-0">Mark Smith <small>Feb 09, 2018</small> <span class="star-rating float-right">
-                                 <i class="mdi mdi-star text-warning"></i>
-                                 <i class="mdi mdi-star-half text-warning"></i>
-                                 <i class="mdi mdi-star-half text-warning"></i>
-                                 <i class="mdi mdi-star-half text-warning"></i>
-                                 <i class="mdi mdi-star-half text-warning"></i><small class="text-success">5/1</small>
-                                 </span>
-                              </h5>
-                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                              <div class="media mt-4">
-                                 <img class="d-flex mr-3 rounded-circle" src="img/user/3.jpg" alt="">
-                                 <div class="media-body">
-                                    <h5 class="mt-0">Ryan Printz <small>Nov 13, 2018</small> <span class="star-rating float-right">
-                                       <i class="mdi mdi-star text-warning"></i>
-                                       <i class="mdi mdi-star text-warning"></i>
-                                       <i class="mdi mdi-star-half text-warning"></i>
-                                       <i class="mdi mdi-star-half text-warning"></i>
-                                       <i class="mdi mdi-star-half text-warning"></i><small class="text-success">5/5</small>
-                                       </span>
-                                    </h5>
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="media mt-4">
-                           <img class="d-flex mr-3 rounded-circle" src="img/user/4.jpg" alt="">
-                           <div class="media-body">
-                              <h5 class="mt-0">Stave Mark <small>Feb 12, 2018</small> 
-                                 <span class="star-rating float-right">
-                                 <i class="mdi mdi-star text-warning"></i>
-                                 <i class="mdi mdi-star text-warning"></i>
-                                 <i class="mdi mdi-star text-warning"></i>
-                                 <i class="mdi mdi-star-half text-warning"></i>
-                                 <i class="mdi mdi-star-half text-warning"></i><small class="text-success">5/2</small>
-                                 </span>
-                              </h5>
-                              <p class="mb-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                           </div>
-                        </div> -->
                      </div>
                   </div>
                   <div class="card padding-card">
@@ -535,9 +493,6 @@
                            <div class="control-group form-group">
                               <div class="controls">
                                  <input type="text" class="form-control" placeholder="Add Comment to Forum" v-model="comment">
-                              </div>
-                              <div class="controls">
-                                 <input type="text" class="form-control" placeholder="Event ID" v-model="event_id">
                               </div>
                            </div>
                            <button type="submit" class="btn btn-success" v-on:click="submitComment()">Add Comment</button>

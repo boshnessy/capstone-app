@@ -56,7 +56,7 @@ var EventShowPage = {
     submitComment: function() {
       var params = {
         user_id: this.user_id,
-        event_id: this.event_id,
+        event_id: this.event.id,
         comment: this.comment 
       };
       axios.post("/forums", params).then(function(response) {

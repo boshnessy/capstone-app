@@ -8,8 +8,13 @@ class Forum < ApplicationRecord
       id: id,
       user_id: user_id,
       user: user.as_json,
-      comment: comment
+      comment: comment,
+      created_at: friendly_created_at
     }
+  end
+
+  def friendly_created_at
+    created_at.strftime("%b %e, %l:%M %p")
   end
 
 end
