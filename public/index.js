@@ -66,7 +66,7 @@ var EventShowPage = {
     submitSong: function() {
       var params = {
         title: this.title,
-        artist_id: this.artist_id,
+        artist_id: this.event.artists[0].id,
         setlist_id: this.event.setlists[0].id
       };
       axios.post("/songs", params).then(function(response) {
