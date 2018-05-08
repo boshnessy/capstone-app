@@ -59,12 +59,8 @@ var EventShowPage = {
         event_id: this.event_id,
         comment: this.comment 
       };
-      console.log("here are the params");
-      console.log(params);
       axios.post("/forums", params).then(function(response) {
-        router.push("/events/" + this.$route.params.id);
-        console.log("here are the params");
-        console.log(params);
+        this.$router.go();
       }.bind(this));
     },
     submitSong: function() {
@@ -73,10 +69,8 @@ var EventShowPage = {
         artist_id: this.artist_id,
         setlist_id: this.event.setlists[0].id
       };
-      console.log("here are the params");
-      console.log(params);
       axios.post("/songs", params).then(function(response) {
-        router.push("/events/" + this.$route.params.id);
+        this.$router.go();
       }.bind(this));
     }
   },
@@ -154,23 +148,18 @@ var LoginPage = {
   },
   methods: {
     submit: function() {
-      console.log("before axios")
       var params = {
         auth: { email: this.email, password: this.password }
       };
       axios
         .post("/user_token", params)
         .then(function(response) {
-          console.log("above");
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          console.log(response.data);
-          // router.push("/");
-          console.log("below");
+          router.push("/");
         })
         .catch(
           function(error) {
-            console.log("in the errors")
             this.errors = ["Invalid email or password."];
             this.email = "";
             this.password = "";

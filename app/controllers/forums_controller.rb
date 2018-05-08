@@ -1,5 +1,5 @@
 class ForumsController < ApplicationController
-  # before_action :authenticate_user, except: [:index, :show]
+  before_action :authenticate_user, except: [:index, :show]
 
   def index
     forums = Forum.all
@@ -9,7 +9,7 @@ class ForumsController < ApplicationController
   def create
     forum = Forum.new(
       comment: params[:comment],
-      user_id: 1,
+      user_id: current_user.id,
       event_id: params[:event_id]
     )
     if forum.save

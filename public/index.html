@@ -205,7 +205,7 @@
          <div class="slider-form">
             <div class="container">
                <h1 class="text-center text-white mb-5">Find Events Near You</h1>
-               <form>
+               <!-- <form> -->
                   <div class="row no-gutters">
                      <div class="col-md-4">
                         <div class="input-group">
@@ -229,7 +229,7 @@
                         <button type="submit" class="btn btn-success btn-block no-radius font-weight-bold">SEARCH</button>
                      </div>
                   </div>
-               </form>
+               <!-- </form> -->
             </div>
          </div>
       </section>
@@ -247,7 +247,7 @@
                      <a v-bind:href="'/#/events/' + event.id">
                         <span class="badge badge-success">View event</span>
                      </a>
-                     <img class="card-img-top" v-bind:src="event.images[0].url" alt="Card image cap" width="300px" height="300px">
+                     <img class="card-img-top" v-bind:src="event.images[0].url" alt="Card image cap">
                      <div class="card-body">
                         <h3 class="card-title">{{ event.artists }}</h3>
                         <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> {{ event.city }}, {{ event.state }}</h6>
@@ -332,7 +332,7 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h5 class="card-title mb-4">Create an Account</h5>
-                        <form>
+                        <!-- <form> -->
                            <ul>
                               <li class="text-danger" v-for="error in errors">{{ error }}</li>
                            </ul>
@@ -360,7 +360,7 @@
                               </div>
                            </div>
                            <button type="submit" class="btn btn-success btn-block btn-primary" v-on:click="submit()">SIGN UP</button>
-                        </form>
+                        <!-- </form> -->
                      </div>
                   </div>
                </div>
@@ -479,7 +479,7 @@
                         <h4 class="card-title mb-8">Forum</h4>
                         <div class="media mb-8" v-for="forum in event.forums">
                            <div class="media-body">
-                              <h6 class="mt-0">{{ event.forums[0].user.username }}</h6>
+                              <h6 class="mt-0">{{ event.forums }}</h6>
                               <p>{{ event.forums[0].comment }}</p>
                            </div>
                         </div>
@@ -541,7 +541,7 @@
                               </div>
                            </div>
                            <button type="submit" class="btn btn-success" v-on:click="submitComment()">Add Comment</button>
-                        </form>
+                        <!-- </form> -->
                      </div>
                   </div>
                </div>
@@ -570,12 +570,12 @@
                      <div class="card padding-card">
                         <div class="card-body">
                            <h4 class="card-title mb-4">Setlist</h4>
-                           <div class="media-body" v-for="setlist in event.setlists">
-                              <ul class="sidebar-card-list">
-                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists}}</li>
+                           <div class="media-body">
+                              <ul class="sidebar-card-list" v-for="setlist in event.setlists">
+                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists[0].songs }}<!-- [0].title --> </li>
                               </ul>
                            </div>
-                           <form name="sentMessage">
+                           <div class="sentMessage">
                               <div class="control-group form-group">
                                  <div class="controls">
                                     <input type="text" class="form-control" placeholder="Add Song to Setlist" v-model="title">
@@ -583,12 +583,13 @@
                                  </div>
                               </div>
                               <button type="submit" class="btn btn-success" v-on:click="submitSong()">Add Song</button>
-                           </form>
+                           <!-- </form> -->
+                           </div>
                         </div>
                      </div>
                   </div>
                   <!-- End Setlist -->
-                  </div>
+                  <!-- </div> -->
                   <!-- Start Featured Properties -->
                   <!-- <div class="card sidebar-card">
                      <div class="card-body">
@@ -685,7 +686,7 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-8 col-md-8 mx-auto">
-                  <form>
+                  <!-- <form> -->
                      <div class="card padding-card">
                         <div class="card-body">
                            <ul>
@@ -776,7 +777,7 @@
                         </div>
                      </div> -->
                      <button type="submit" class="btn btn-success" v-on:click="submit()">ADD EVENT</button>
-                  </form>
+                  <!-- </form> -->
                </div>
             </div>
          </div>
