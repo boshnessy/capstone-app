@@ -28,6 +28,23 @@ var EventNewPage = {
       }).catch(function(error) {
         this.errors = error.response.data.errors;
       }.bind(this));
+    },
+    uploadFile: function(event) {
+      if (event.target.files.length > 0) {
+        var formData = new FormData();
+        formData.append("date", this.date);
+        formData.append("artist", this.artist);
+        formData.append("venue", this.venue);
+        formData.append("city", this.city);
+        formData.append("state", this.state);
+        formData.append("image", event.target.files[0]);
+
+        axios
+          .post("/events", formData)
+          .then(function(response) {
+            router.push("/");
+          }.bind(this));
+      }
     }
   },
   computed: {}
@@ -53,16 +70,6 @@ var EventShowPage = {
     }.bind(this));
   },
   methods: {
-    submitComment: function() {
-      var params = {
-        user_id: this.user_id,
-        event_id: this.event.id,
-        comment: this.comment 
-      };
-      axios.post("/forums", params).then(function(response) {
-        this.$router.go();
-      }.bind(this));
-    },
     submitSong: function() {
       var params = {
         title: this.title,
@@ -85,8 +92,7 @@ var EventShowPage = {
           .post("/forums", formData)
           .then(function(response) {
             console.log(response);
-            this.comment = "";
-            event.target.value = "";
+            router.push("/");
           }.bind(this));
       } 
     }
