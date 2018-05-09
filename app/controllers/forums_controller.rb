@@ -10,7 +10,8 @@ class ForumsController < ApplicationController
     forum = Forum.new(
       comment: params[:comment],
       user_id: current_user.id,
-      event_id: params[:event_id]
+      event_id: params[:event_id],
+      image: params[:image]
     )
     if forum.save
       render json: forum.as_json

@@ -72,7 +72,25 @@ var EventShowPage = {
       axios.post("/songs", params).then(function(response) {
         this.$router.go();
       }.bind(this));
+    },
+    uploadFile: function(event) {
+      if (event.target.files.length > 0) {
+        var formData = new FormData();
+        formData.append("user_id", this.user_id);
+        formData.append("event_id", this.event.id);
+        formData.append("comment", this.comment);
+        formData.append("image", event.target.files[0]);
+
+        axios
+          .post("/forums", formData)
+          .then(function(response) {
+            console.log(response);
+            this.comment = "";
+            event.target.value = "";
+          }.bind(this));
+      } 
     }
+
   },
   computed: {}
 };
