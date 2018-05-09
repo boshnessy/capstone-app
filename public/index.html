@@ -452,8 +452,8 @@
                         <div class="media mb-8" v-for="forum in event.forums">
                            <img class="d-flex mr-3 rounded-circle" src="img/user/unknown.jpg" alt="">
                            <div class="media-body">
-                              <h6 class="mt-0">{{ event.forums[2].user.username }} <small>{{ event.forums[2].created_at }}</small></h6>
-                              <p>{{ event.forums[2].comment }}</p>
+                              <h6 class="mt-0">{{ forum.user.username }} <small>{{ forum.created_at }}</small></h6>
+                              <p>{{ forum.comment }}</p>
                            </div>
                         </div>
                      </div>
@@ -496,9 +496,11 @@
                         <div class="card-body">
                            <h4 class="card-title mb-4">Setlist</h4>
                            <div class="media-body">
-                              <ul class="sidebar-card-list" v-for="setlist in event.setlists">
-                                 <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ event.setlists[0].songs }}<!-- [0].title --> </li>
-                              </ul>
+                              <div class="sidebar-card-list" v-for="setlist in event.setlists">
+                                 <ul class="sidebar-card-list" v-for="song in setlist.songs">
+                                    <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ song.title }}</li>
+                                 </ul>
+                              </div>
                            </div>
                            <div class="sentMessage">
                               <div class="control-group form-group">
