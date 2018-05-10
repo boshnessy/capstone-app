@@ -419,23 +419,58 @@
                   </div>
                   <div class="col-lg-4 col-md-4 text-right">
                      <h1 class="text-white">{{ event.date }}</h1>
-                  </div>
-               </div><!-- 
-               <hr>
-               <div class="row">
-                  <div class="col-lg-8 col-md-8">
-                     <p class="mt-1 mb-0 text-white"><strong>Property ID</strong> : 533566 &nbsp;&nbsp; <strong>Add to favorites</strong> <i class="mdi mdi-heart text-white"></i></p>
-                  </div>
-                  <div class="col-lg-4 col-md-4 text-right">
-                     <div class="footer-social">
-                        <span class="text-white">Share :</span> &nbsp;
-                        <a href="#"><i class="mdi mdi-facebook"></i></a>
-                        <a href="#"><i class="mdi mdi-twitter"></i></a>
-                        <a href="#"><i class="mdi mdi-instagram"></i></a>
-                        <a href="#"><i class="mdi mdi-google"></i></a>
+                     <!-- Button trigger modal -->
+                     <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentEvent(event)">
+                       Edit Event Info
+                     </button>
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                       <div class="modal-dialog" role="document">
+                         <div class="modal-content">
+                           <ul>
+                             <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                           </ul>
+                           <div class="modal-header">
+                             <h5 class="modal-title" id="exampleModalLabel">Update Event Info</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                             </button>
+                           </div>
+                           <div class="modal-body">
+                             <div class="form-group">
+                                 <label>Date <span class="text-danger">*</span></label>
+                                 <input type="text" v-model="currentEvent.date" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                 <label>Artist <span class="text-danger">*</span></label>
+                                 <input type="text" v-model="currentEvent.artists" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                 <label>Venue <span class="text-danger">*</span></label>
+                                 <input type="text" v-model="currentEvent.venue" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                 <label>City <span class="text-danger">*</span></label>
+                                 <input type="text" v-model="currentEvent.city" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                 <label>State or Country <span class="text-danger">*</span></label>
+                                 <input type="text" v-model="currentEvent.state" class="form-control">
+                              </div>
+                              <div>
+                                 <label>Artist Image URL <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" v-model="currentEvent.images">
+                              </div>
+                           </div>
+                           <div class="modal-footer">
+                             <button type="submit" class="btn btn-success" data-dismiss="modal" v-on:click="updateEvent(event)">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
                      </div>
                   </div>
-               </div> -->
+               </div>
             </div>
          </div>
       </section>
@@ -638,8 +673,8 @@
                               <input type="text" v-model="city" class="form-control" placeholder="Enter City">
                            </div>
                            <div class="form-group">
-                              <label>State <span class="text-danger">*</span></label>
-                              <input type="text" v-model="state" class="form-control" placeholder="Enter State">
+                              <label>State or Country <span class="text-danger">*</span></label>
+                              <input type="text" v-model="state" class="form-control" placeholder="Enter State or Country">
                            </div>
                            <div>
                               <label>Artist Image URL <span class="text-danger">*</span></label>

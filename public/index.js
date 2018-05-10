@@ -61,7 +61,9 @@ var EventShowPage = {
       setlists: {},
       songs: {},
       artist_id: "",
-      event_id: ""
+      event_id: "",
+      errors: [],
+      currentEvent: {date: "", artist: "", venue: "", city: "", state: "", image: ""}
     };
   },
   created: function() {
@@ -95,8 +97,25 @@ var EventShowPage = {
             router.push("/");
           }.bind(this));
       } 
+    },
+    setCurrentEvent: function(inputEvent) {
+      this.currentEvent = inputEvent;
+    },
+    updateEvent: function() {
+      var params = {
+        date: this.currentEvent.date,
+        artist: this.currentEvent.artist,
+        venue: this.currentEvent.venue,
+        city: this.currentEvent.city,
+        state: this.currentEvent.state,
+        image: this.currentEvent.image
+      };
+      axios.patch("/events/" + this.currentEvent.id, params).then(function(response) {
+        console.log("event updated");
+      }).catch(function(error) {
+        this.errors = error.response.data.errors;
+      }.bind(this));
     }
-
   },
   computed: {}
 };
