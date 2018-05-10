@@ -7,7 +7,9 @@ class User < ApplicationRecord
 
   def as_json
     {
-      username: username
+      id: id,
+      username: username,
+      email: email
     }
   end
 

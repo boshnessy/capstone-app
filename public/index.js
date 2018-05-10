@@ -1,5 +1,21 @@
 /* global Vue, VueRouter, axios */
 
+var ProfilePage = {
+  template: "#profile-page",
+  data: function() {
+    return {
+      message: "hi"
+    };
+  },
+  created: function() {
+    axios.get("/users/" + this.$route.params.id).then(function(response) {
+      this.user = response.data;
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
 var EventNewPage = {
   template: "#event-new-page",
   data: function() {
@@ -246,7 +262,8 @@ var router = new VueRouter({
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
     { path: "/events/new", component: EventNewPage },
-    { path: "/events/:id", component: EventShowPage }
+    { path: "/events/:id", component: EventShowPage },
+    { path: "/users/:id", component: ProfilePage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
