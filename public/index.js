@@ -115,6 +115,14 @@ var EventShowPage = {
       }).catch(function(error) {
         this.errors = error.response.data.errors;
       }.bind(this));
+    },
+    deleteSong: function(inputSong) {
+      console.log("deleting song");
+      axios.delete("/songs/" + inputSong.id).then(function(response) {
+        this.$router.go();
+        var index = this.songs.indexOf(inputSong);
+        console.log("song deleted");
+      }.bind(this));
     }
   },
   computed: {}

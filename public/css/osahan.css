@@ -71,8 +71,12 @@ Version: 1.0
      outline-offset: 0;
 }
 /* Extra */
+.whitespace {
+    white-space: nowrap;
+}
  .help-block li {
      color: red;
+}
 }
  .badge {
      border-radius: 2px;

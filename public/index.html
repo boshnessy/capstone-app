@@ -534,8 +534,8 @@
                            <h4 class="card-title mb-4">Setlist</h4>
                            <div class="media-body">
                               <div class="sidebar-card-list" v-for="setlist in event.setlists">
-                                 <ul class="sidebar-card-list" v-for="song in setlist.songs">
-                                    <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ song.title }}</li>
+                                 <ul class="sidebar-card-list whitespace" v-for="song in setlist.songs">
+                                    <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ song.title }} <a href="#"><i class="mdi mdi-close-box-outline text-danger" v-on:click="deleteSong(song)"></i></a></li>
                                  </ul>
                               </div>
                            </div>
@@ -546,6 +546,9 @@
                                  </div>
                               </div>
                               <button type="submit" class="btn btn-success" v-on:click="submitSong()">Add Song</button>
+                              <ul>
+                                 <li>Click <i class="mdi mdi-close-box-outline text-danger"></i> to delete a song</li>
+                              </ul>
                            <!-- </form> -->
                            </div>
                         </div>
