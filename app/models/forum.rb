@@ -1,5 +1,5 @@
 class Forum < ApplicationRecord
-  has_attached_file :image
+  has_attached_file :image, default_url: ""
   belongs_to :event
   belongs_to :user
   has_many :reports
