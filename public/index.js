@@ -1,21 +1,5 @@
 /* global Vue, VueRouter, axios */
 
-var ProfilePage = {
-  template: "#profile-page",
-  data: function() {
-    return {
-      message: "hi"
-    };
-  },
-  created: function() {
-    axios.get("/users/" + this.$route.params.id).then(function(response) {
-      this.user = response.data;
-    }.bind(this));
-  },
-  methods: {},
-  computed: {}
-};
-
 var EventNewPage = {
   template: "#event-new-page",
   data: function() {
@@ -75,7 +59,7 @@ var EventShowPage = {
       title: "",
       forums: {},
       setlists: {},
-      songs: {},
+      songs: [],
       artist_id: "",
       event_id: "",
       errors: [],
@@ -88,7 +72,7 @@ var EventShowPage = {
     }.bind(this));
   },
   methods: {
-    submitSong: function() {
+    submitComment: function() {
       var params = {
         title: this.title,
         artist_id: this.event.artists[0].id,
@@ -98,14 +82,14 @@ var EventShowPage = {
         this.$router.go();
       }.bind(this));
     },
-    submitComment: function() {
+    submitSong: function() {
       var params = {
         user_id: this.user_id,
         event_id: this.event.id,
         comment: this.comment
       };
       axios.post("/forums", params).then(function(response) {
-        this.$router.go();
+        window.location.reload();
       }.bind(this));
     },
     uploadFile: function(event) {
@@ -120,7 +104,7 @@ var EventShowPage = {
           .post("/forums", formData)
           .then(function(response) {
             console.log(response);
-            router.push("/");
+            this.$router.go();
           }.bind(this));
       } 
     },
@@ -145,9 +129,12 @@ var EventShowPage = {
     deleteSong: function(inputSong) {
       console.log("deleting song");
       axios.delete("/songs/" + inputSong.id).then(function(response) {
-        this.$router.go();
-        var index = this.songs.indexOf(inputSong);
+        console.log("before reroute");
+        console.log(this.songs)
+        var index = this.event.setlists[0].songs.indexOf(inputSong);
+        this.event.setlists[0].songs.splice(index, 1);
         console.log("song deleted");
+        router.push("/events/9");
       }.bind(this));
     }
   },
@@ -262,8 +249,7 @@ var router = new VueRouter({
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
     { path: "/events/new", component: EventNewPage },
-    { path: "/events/:id", component: EventShowPage },
-    { path: "/users/:id", component: ProfilePage }
+    { path: "/events/:id", component: EventShowPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
