@@ -488,7 +488,7 @@
                            <div class="media-body">
                               <div class="col-lg-12 col-md-4 text-right">
                                  <ul>
-                                 <li><i class="mdi mdi-close-box-outline text-danger"></i></li>
+                                 <li v-on:click="deleteComment(forum)"><i class="mdi mdi-close-box-outline text-danger"></i></li>
                               </ul>
                               </div>
                               <h6 class="mt-0">{{ forum.user.username }} <small>{{ forum.created_at }}</small></h6>
