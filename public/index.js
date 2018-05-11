@@ -72,7 +72,7 @@ var EventShowPage = {
     }.bind(this));
   },
   methods: {
-    submitComment: function() {
+    submitSong: function() {
       var params = {
         title: this.title,
         artist_id: this.event.artists[0].id,
@@ -82,7 +82,7 @@ var EventShowPage = {
         this.$router.go();
       }.bind(this));
     },
-    submitSong: function() {
+    submitComment: function() {
       var params = {
         user_id: this.user_id,
         event_id: this.event.id,
@@ -129,12 +129,10 @@ var EventShowPage = {
     deleteSong: function(inputSong) {
       console.log("deleting song");
       axios.delete("/songs/" + inputSong.id).then(function(response) {
-        console.log("before reroute");
-        console.log(this.songs)
         var index = this.event.setlists[0].songs.indexOf(inputSong);
         this.event.setlists[0].songs.splice(index, 1);
         console.log("song deleted");
-        router.push("/events/9");
+        router.push("/events/" + this.$route.params.id);
       }.bind(this));
     }
   },
