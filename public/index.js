@@ -209,6 +209,23 @@ var SignupPage = {
             this.errors = error.response.data.errors;
           }.bind(this)
         );
+    },
+    uploadFile: function(event) {
+      if (event.target.files.length > 0) {
+        var formData = new FormData();
+        formData.append("username", this.username);
+        formData.append("email", this.email);
+        formData.append("password", this.password);
+        formData.append("password_confirmation", this.passwordConfirmation);
+        formData.append("image", event.target.files[0]);
+
+        axios
+          .post("/users", formData)
+          .then(function(response) {
+            console.log(response);
+            router.push("/login");
+          }.bind(this));
+      }
     }
   }
 };

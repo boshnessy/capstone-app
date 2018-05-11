@@ -322,6 +322,10 @@
                            <input type="password" class="form-control" v-model="passwordConfirmation" placeholder="Confirm Password">
                         </div>
                         <div class="form-group">
+                           <label>Profile Picture</label>
+                           <input type="file" class="form-control" v-on:change="uploadFile($event)">
+                        </div>
+                        <div class="form-group">
                            <p>Terms of Service: Content is subject to removal based on copyright or harassment complaints, or if content is deemed to be inappropriate.</p>
                            <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
@@ -437,10 +441,10 @@
                                  <label>Date <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.date" class="form-control">
                               </div>
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                  <label>Artist <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.artists" class="form-control">
-                              </div>
+                              </div> -->
                               <div class="form-group">
                                  <label>Venue <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.venue" class="form-control">
@@ -453,10 +457,10 @@
                                  <label>State or Country <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.state" class="form-control">
                               </div>
-                              <div>
+                              <!-- <div>
                                  <label>Artist Image URL <span class="text-danger">*</span></label>
                                  <input type="text" class="form-control" v-model="currentEvent.images">
-                              </div>
+                              </div> -->
                            </div>
                            <div class="modal-footer">
                              <button type="submit" class="btn btn-success" data-dismiss="modal" v-on:click="updateEvent(event)">Save changes</button>
@@ -480,10 +484,12 @@
                      <div class="card-body">
                         <h4 class="card-title mb-8">Forum</h4>
                         <div class="media mb-8" v-for="forum in event.forums">
-                           <img class="d-flex mr-3 rounded-circle" src="img/user/unknown.jpg" alt="">
+                           <img class="d-flex mr-3 rounded-circle" v-bind:src="forum.user.image" alt="">
                            <div class="media-body">
                               <div class="col-lg-12 col-md-4 text-right">
-                                 <button type="submit" class="btn btn-failure" v-on:click="deleteComment(forum)">Delete</button>
+                                 <ul>
+                                 <li><i class="mdi mdi-close-box-outline text-danger"></i></li>
+                              </ul>
                               </div>
                               <h6 class="mt-0">{{ forum.user.username }} <small>{{ forum.created_at }}</small></h6>
                               <p>{{ forum.comment }}</p>
@@ -496,14 +502,13 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h4 class="card-title mb-4">Talk to other {{ event.artists[0].name }} fans!</h4>
-                        <!-- <form name="sentMessage"> -->
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <input type="text" class="form-control" placeholder="Add Comment to Forum" v-model="comment">
-                                 <input type="file" v-on:change="uploadFile($event)">
-                              </div>
+                        <div class="control-group form-group">
+                           <div class="controls">
+                              <input type="text" class="form-control" placeholder="Add Comment to Forum" v-model="comment">
+                              <input type="file" v-on:change="uploadFile($event)">
                            </div>
-                           <button type="submit" class="btn btn-success" v-on:click="submitComment()">Add Comment</button>
+                        </div>
+                        <button type="submit" class="btn btn-success" v-on:click="submitComment()">Add Comment</button>
                      </div>
                   </div>
                </div>
