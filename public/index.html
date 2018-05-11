@@ -415,8 +415,9 @@
                      <h1 class="text-white">{{ event.date }}</h1>
                      <!-- Button trigger modal -->
                      <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentEvent(event)">
-                       Edit Event Info
+                       Edit Event
                      </button>
+                     <button type="submit" class="btn btn-failure" v-on:click="deleteEvent(event)">Delete Event</button>
 
                      <!-- Modal -->
                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

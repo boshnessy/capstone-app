@@ -134,6 +134,11 @@ var EventShowPage = {
         console.log("song deleted");
         router.push("/events/" + this.$route.params.id);
       }.bind(this));
+    },
+    deleteEvent: function(event) {
+      axios.delete("/events/" + event.id).then(function(response) {
+        router.push("/");
+      }.bind(this));
     }
   },
   computed: {}

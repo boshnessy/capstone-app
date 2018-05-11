@@ -222,6 +222,12 @@ Version: 1.0
      background-color: #64ddba;
      border-color: #64ddba;
      color: #fff;
+ }
+
+ .btn-failure {
+     background-color: #ff4d4d;
+     border-color: #ff4d4d;
+     color: #fff;
 }
  .btn-success:hover, .btn-success:focus {
      background-color: #43EBBC;
