@@ -482,6 +482,9 @@
                         <div class="media mb-8" v-for="forum in event.forums">
                            <img class="d-flex mr-3 rounded-circle" src="img/user/unknown.jpg" alt="">
                            <div class="media-body">
+                              <div class="col-lg-12 col-md-4 text-right">
+                                 <button type="submit" class="btn btn-failure" v-on:click="deleteComment(forum)">Delete</button>
+                              </div>
                               <h6 class="mt-0">{{ forum.user.username }} <small>{{ forum.created_at }}</small></h6>
                               <p>{{ forum.comment }}</p>
                               <img v-bind:src="forum.image">

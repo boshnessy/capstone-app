@@ -45,14 +45,6 @@ class ForumsController < ApplicationController
       render json: {errors: forum.errors.full_messages}, status: :bad_request
     end
   end
-
-  def forum_params
-    params.require(:forum).permit(:image)
-  end
-
-  def new
-    @forum = Forum.new
-  end
 end
 # make new comment i.e. forum
 # user_id = current user.id

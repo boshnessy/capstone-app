@@ -139,7 +139,16 @@ var EventShowPage = {
       axios.delete("/events/" + event.id).then(function(response) {
         router.push("/");
       }.bind(this));
-    }
+    },
+    deleteComment: function(inputComment) {
+      console.log("deleting comment");
+      axios.delete("/forums/" + inputComment.id).then(function(response) {
+        var index = this.event.forums.indexOf(inputComment);
+        this.event.forums.splice(index, 1);
+        console.log("comment deleted");
+        router.push("/events/" + this.$route.params.id);
+      }.bind(this));
+    },
   },
   computed: {}
 };
