@@ -161,19 +161,28 @@
                   <div class="col-md-4">
                      <div class="input-group">
                         <div class="input-group-addon"><i class="mdi mdi-map-marker-multiple"></i></div>
-                        <input class="form-control" v-model="searchArtist" placeholder="Search by Artist" type="text">
+                        <input class="form-control" v-model="searchArtist" placeholder="Search by Artist" type="text" list="artists">
+                        <datalist id="artists">
+                           <option v-for="event in events">{{ event.artists[0].name }}</option>
+                        </datalist>
                      </div>
                   </div>
                   <div class="col-md-3">
                      <div class="input-group">
                         <div class="input-group-addon"><i class="mdi mdi-map-marker-multiple"></i></div>
-                        <input class="form-control" v-model="searchCity" placeholder="Search by City" type="text">
+                        <input class="form-control" v-model="searchCity" placeholder="Search by City" type="text" list="cities">
+                        <datalist id="cities">
+                           <option v-for="event in events">{{ event.city }}</option>
+                        </datalist>
                      </div>
                   </div>
                   <div class="col-md-3">
                      <div class="input-group">
                         <div class="input-group-addon"><i class="mdi mdi-map-marker-multiple"></i></div>
-                        <input class="form-control" v-model="searchVenue" placeholder="Search by Venue" type="text">
+                        <input class="form-control" v-model="searchVenue" placeholder="Search by Venue" type="text" list="venues">
+                        <datalist id="venues">
+                           <option v-for="event in events">{{ event.venue }}</option>
+                        </datalist>
                      </div>
                   </div>
                   <div class="col-md-2">  
