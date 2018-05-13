@@ -90,7 +90,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-4 col-md-3">
-                     <h4 class="mb-5"><a class="text-success logo" href="index.html"><i class="mdi mdi-home-map-marker"></i> <strong>Share</strong>TheExperience</a></h4>
+                     <h4 class="mb-5"><a class="text-success logo" href="/#/"><i class="mdi mdi-home-map-marker"></i> <strong>Share</strong>TheExperience</a></h4>
                      <p>Chicago, IL 60611</p>
                      <p class="mb-0"><a class="text-success" href="#">boshnessy@gmail.com</a></p>
                      <p class="mb-0"><a class="text-info" href="#">www.askbootstrap.com</a></p>
@@ -98,8 +98,7 @@
                   <div class="col-lg-2 col-md-2">
                      <h6 class="mb-4">COMPANY</h6>
                      <ul>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Properties</a></li>
+                        <li><a href="/#/about">About us</a></li>
                         <li><a href="#">Contact</a></li>
                      <ul>
                   </div>
@@ -107,18 +106,8 @@
                      <h6 class="mb-4">LEARN MORE</h6>
                      <ul>
                         <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Account</a></li>
                         <li><a href="#">FAQ</a></li>
                      <ul>
-                  </div>
-                  <div class="col-lg-4 col-md-4">
-                     <h6 class="mb-4 mt-5">GET IN TOUCH</h6>
-                     <div class="footer-social">
-                        <a href="#"><i class="mdi mdi-facebook"></i></a>
-                        <a href="#"><i class="mdi mdi-twitter"></i></a>
-                        <a href="#"><i class="mdi mdi-instagram"></i></a>
-                        <a href="#"><i class="mdi mdi-google"></i></a>
-                     </div>
                   </div>
                </div>
             </div>
@@ -156,12 +145,16 @@
             <ol class="carousel-indicators">
                <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
                <li data-target="#osahanslider" data-slide-to="1"></li>
+               <li data-target="#osahanslider" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                <div class="carousel-item active" style="background-image: url('img/slider/1.jpg')">
                   <div class="overlay"></div>
                </div>
                <div class="carousel-item" style="background-image: url('img/slider/2.jpg')">
+                  <div class="overlay"></div>
+               </div>
+               <div class="carousel-item" style="background-image: url('img/slider/3.jpg')">
                   <div class="overlay"></div>
                </div>
             </div>
@@ -232,64 +225,6 @@
          </div>
       </section>
       <!-- End Properties List -->
-      <!-- Properties by City -->
-      <!-- <section class="section-padding bg-white">
-         <div class="section-title text-center mb-5">
-            <h2>Search By City</h2>
-         </div>
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-8 col-md-8">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="img/overlay/1.png" alt="Card image">
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">New York</h3>
-                           <p class="card-text text-white">16 Properties</p>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="img/overlay/2.png" alt="Card image">
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">Los Angeles</h3>
-                           <p class="card-text text-white">265 Properties</p>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="img/overlay/3.png" alt="Card image">
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">Chicago</h3>
-                           <p class="card-text text-white">620 Properties</p>
-                        </div>
-                     </a>
-                     .    
-                  </div>
-               </div>
-               <div class="col-lg-8 col-md-8">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="img/overlay/4.png" alt="Card image">
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">Philadelphia</h3>
-                           <p class="card-text text-white">28 Properties</p>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section> -->
-      <!-- End Properties by City -->
    </div>
 </template>
 
@@ -389,12 +324,16 @@
             <ol class="carousel-indicators">
                <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
                <li data-target="#osahanslider" data-slide-to="1"></li>
+               <li data-target="#osahanslider" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                <div class="carousel-item active" style="background-image: url('img/slider/1.jpg')">
                   <div class="overlay"></div>
                </div>
                <div class="carousel-item" style="background-image: url('img/slider/2.jpg')">
+                  <div class="overlay"></div>
+               </div>
+               <div class="carousel-item" style="background-image: url('img/slider/3.jpg')">
                   <div class="overlay"></div>
                </div>
             </div>
@@ -437,7 +376,7 @@
                              </button>
                            </div>
                            <div class="modal-body">
-                             <div class="form-group">
+                             <div class="form-group left">
                                  <label>Date <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.date" class="form-control">
                               </div>
@@ -445,15 +384,15 @@
                                  <label>Artist <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.artists" class="form-control">
                               </div> -->
-                              <div class="form-group">
+                              <div class="form-group left">
                                  <label>Venue <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.venue" class="form-control">
                               </div>
-                              <div class="form-group">
+                              <div class="form-group left">
                                  <label>City <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.city" class="form-control">
                               </div>
-                              <div class="form-group">
+                              <div class="form-group left">
                                  <label>State or Country <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.state" class="form-control">
                               </div>
@@ -538,7 +477,7 @@
                            <div class="media-body">
                               <div class="sidebar-card-list" v-for="setlist in event.setlists">
                                  <ul class="sidebar-card-list whitespace" v-for="song in setlist.songs">
-                                    <li><i class="mdi mdi-checkbox-marked-outline text-success"></i> {{ song.title }} <a href="#"><i class="mdi mdi-close-box-outline text-danger" v-on:click="deleteSong(song)"></i></a></li>
+                                    <li><i class="mdi mdi-close-box-outline text-danger" v-on:click="deleteSong(song)"></i> {{ song.title }}</li>
                                  </ul>
                               </div>
                            </div>
@@ -558,51 +497,6 @@
                   </div>
                   <!-- End Setlist -->
                   <!-- </div> -->
-                  <!-- Start Featured Properties -->
-                  <!-- <div class="card sidebar-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">Featured Properties</h5>
-                        <div id="featured-properties" class="carousel slide" data-ride="carousel">
-                           <ol class="carousel-indicators">
-                              <li data-target="#featured-properties" data-slide-to="0" class="active"></li>
-                              <li data-target="#featured-properties" data-slide-to="1"></li>
-                           </ol>
-                           <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                 <div class="card card-list">
-                                    <a href="#">
-                                       <span class="badge badge-success">For Sale</span>
-                                       <img class="card-img-top" src="img/list/1.png" alt="Card image cap">
-                                       <div class="card-body">
-                                          <h5 class="card-title">House in Kent Street</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6>
-                                          <h2 class="text-success mb-0 mt-3">
-                                             $130,000 <small>/month</small>
-                                          </h2>
-                                       </div>
-                                    </a>
-                                 </div>
-                              </div>
-                              <div class="carousel-item">
-                                 <div class="card card-list">
-                                    <a href="#">
-                                       <span class="badge badge-secondary">For Rent</span>
-                                       <img class="card-img-top" src="img/list/2.png" alt="Card image cap">
-                                       <div class="card-body">
-                                          <h5 class="card-title">Family House in Hudson</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> Hoboken, NJ, USA</h6>
-                                          <h2 class="text-success mb-0 mt-3">
-                                             $127,000 <small>/month</small>
-                                          </h2>
-                                       </div>
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div> -->
-                  <!-- End Featured Properties -->
                </div>
             </div>
          </div>
@@ -619,12 +513,16 @@
             <ol class="carousel-indicators">
                <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
                <li data-target="#osahanslider" data-slide-to="1"></li>
+               <li data-target="#osahanslider" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                <div class="carousel-item active" style="background-image: url('img/slider/1.jpg')">
                   <div class="overlay"></div>
                </div>
                <div class="carousel-item" style="background-image: url('img/slider/2.jpg')">
+                  <div class="overlay"></div>
+               </div>
+               <div class="carousel-item" style="background-image: url('img/slider/3.jpg')">
                   <div class="overlay"></div>
                </div>
             </div>
@@ -642,7 +540,7 @@
                <div class="col-md-12 text-center">
                   <h1 class="mt-0 mb-3 text-white">Add Event</h1>
                   <div class="breadcrumbs">
-                     <h5 class="mb-0 text-white">Create a new event so you can interact with other attendees and post pictures, videos, and the setlist! </h5>
+                     <h5 class="mb-0 text-white">Create a new event so you can interact with other attendees, show off your pictures, and work together to update the setlist! </h5>
                   </div>
                </div>
             </div>
@@ -686,68 +584,48 @@
                         </div>
                      </div>
                   </div>
-                  <!-- <div class="card padding-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">Upload an Artist Photo</h5>
-                        <div class="row">
-                           <div class="col-md-4">
-                              <div class="fuzone">
-                                 <div class="fu-text">
-                                    <span><i class="mdi mdi-image-area"></i> Click here or drop files to upload</span>
-                                 </div>
-                                 <input class="upload" type="file">
-                              </div>
-                           </div>
-                           <div class="col-md-4">
-                              <div class="fuzone">
-                                 <div class="fu-text">
-                                    <span><i class="mdi mdi-image-area"></i> Click here or drop files to upload</span>
-                                 </div>
-                                 <input class="upload" type="file">
-                              </div>
-                           </div>
-                           <div class="col-md-4">
-                              <div class="fuzone">
-                                 <div class="fu-text">
-                                    <span><i class="mdi mdi-image-area"></i> Click here or drop files to upload</span>
-                                 </div>
-                                 <input class="upload" type="file">
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="card padding-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">Venue Location</h5>
-                        <div class="row">
-                           <div class="form-group col-md-6">
-                              <label>Address</label>
-                              <input type="text" class="form-control" placeholder="Enter Address">
-                           </div>
-                           <div class="form-group col-md-6">
-                              <label>City</label>
-                              <input type="text" class="form-control" placeholder="Enter City">
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="form-group col-md-6">
-                              <label>State</label>
-                              <input type="text" class="form-control" placeholder="Enter State">
-                           </div>
-                           <div class="form-group col-md-6">
-                              <label>Zip/Postal Code</label>
-                              <input type="text" class="form-control" placeholder="Enter Zip/Postal">
-                           </div>
-                        </div>
-                        <div class="mt-3" id="map"></div>
-                     </div>
-                  </div> -->
                   <button type="submit" class="btn btn-success" v-on:click="submit()">ADD EVENT</button>
                </div>
             </div>
          </div>
       </section>
       <!-- End Add Property -->
+   </div>
+</template>
+
+<template id="about-page">
+   <div class="vue-component">
+      <!-- Inner Header -->
+      <section class="section-padding bg-dark inner-header">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 text-center">
+                  <h1 class="mt-0 mb-3 text-white">About Us</h1>
+                  <div class="breadcrumbs">
+                     <p class="mb-0 text-white"><a class="text-white" href="#">Home</a>  /  <span class="text-success">About Us</span></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End Inner Header -->
+      <!-- About -->
+      <section class="section-padding bg-white">
+         <div class="container">
+            <div class="row">
+               <div class="pl-4 col-lg-5 col-md-5 pr-4">
+                  <img class="rounded img-fluid" src="img/about.jpg" alt="Card image cap">
+               </div>
+               <div class="col-lg-6 col-md-6 pl-5 pr-5">
+                  <h2 class="mt-5 mb-5">We Provide Lovable Experiment in the Real<br> Estate Field</h2>
+                  <h5 class="mt-2">Our Vision</h5>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,</p>
+                  <h5 class="mt-4">Our Goal</h5>
+                  <p>When looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,</p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End About -->
    </div>
 </template>
