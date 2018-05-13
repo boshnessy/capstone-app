@@ -71,10 +71,6 @@ Version: 1.0
      outline-offset: 0;
 }
 /* Extra */
-.report {
-    color: #ff4d4d;
-    background-color: white;
-}
 .left {
     text-align: left;
 }

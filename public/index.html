@@ -77,11 +77,11 @@
          <section class="section-padding footer bg-white">
             <div class="container">
                <div class="row">
-                  <div class="col-lg-4 col-md-3">
-                     <h4 class="mb-5"><a class="text-success logo" href="/#/"><i class="mdi mdi-home-map-marker"></i> <strong>Share</strong>TheExperience</a></h4>
-                     <p>276 Oak Street, 24th Floor<br>Chicago, IL 60611</p>
-                     <p class="mb-0"><a class="text-success" href="#">hq@sharetheexperience.com</a></p>
-                     <p class="mb-0"><a class="text-info" href="#">www.askbootstrap.com</a></p>
+                  <div class="col-lg-6 col-md-6">
+                     <h2 class="mb-5"><a class="text-success logo" href="/#/"><i class="mdi mdi-home-map-marker"></i> <strong>Share</strong>TheExperience</a></h2>
+                     <h6>276 Oak Street, 24th Floor<br>Chicago, IL 60611</h6>
+                     <h6 class="mb-0"><a class="text-success" href="#">hq@sharetheexperience.com</a></h6>
+                     <h6 class="mb-0"><a class="text-info" href="#">www.askbootstrap.com</a></h6>
                   </div>
                   <div class="col-lg-2 col-md-2">
                      <h6 class="mb-4">COMPANY</h6>
@@ -201,7 +201,7 @@
          </div>
          <div class="container">
             <div class="row">
-               <div class="col-lg-4 col-md-4" v-for="event in events" v-if="isValidEvent(event)">
+               <div class="col-lg-4 col-md-4" v-for="event in events" v-if="isValidEvent(event)" v-bind:key="event.id">
                   <div class="card card-list">
                      <a v-bind:href="'/#/events/' + event.id">
                         <span class="badge badge-success">View event</span>

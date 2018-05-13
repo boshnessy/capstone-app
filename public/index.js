@@ -220,7 +220,15 @@ var HomePage = {
       return validArtist && validVenue && validCity;
     }
   },
-  computed: {}
+  computed: {
+    sortedEvents: function() {
+      return this.events.sort(function(event1, event2) {
+        var event1Artist = event1.artists[0].name.toLowerCase();
+        var event2Artist = event2.artists[0].name.toLowerCase();
+        return event1Artist.localeCompare(event2Artist);
+      });
+    }
+  }
 };
 
 var SignupPage = {
