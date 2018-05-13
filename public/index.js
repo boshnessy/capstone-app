@@ -1,5 +1,27 @@
 /* global Vue, VueRouter, axios */
 
+var TermsPage = {
+  template: "#terms-page",
+  data: function() {
+    return {
+      message: "hi"
+    };
+  },
+  methods: {},
+  computed: {}
+};
+
+var FAQPage = {
+  template: "#faq-page",
+  data: function() {
+    return {
+      message: "hi"
+    };
+  },
+  methods: {},
+  computed: {}
+};
+
 var AboutPage = {
   template: "#about-page",
   data: function() {
@@ -290,7 +312,9 @@ var router = new VueRouter({
     { path: "/logout", component: LogoutPage },
     { path: "/events/new", component: EventNewPage },
     { path: "/events/:id", component: EventShowPage },
-    { path: "/about", component: AboutPage }
+    { path: "/about", component: AboutPage },
+    { path: "/faq", component: FAQPage },
+    { path: "/terms", component: TermsPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

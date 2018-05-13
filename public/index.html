@@ -47,27 +47,16 @@
                               <a class="dropdown-item" href="/#/events/new">Create New Event</a>
                            </div>
                         </li>
-                        <!-- <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           My Account
-                           </a>
-                           <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-                              <a class="dropdown-item" href="'/#/users/' + current_user.id">My Profile</a>
-                              <a class="dropdown-item" href="my-properties.html">My Properties</a>
-                              <a class="dropdown-item" href="favorite-properties.html">Favorite Properties</a>
-                           </div>
-                        </li>
                         <li class="nav-item dropdown">
                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            Pages
                            </a>
                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-                              <a class="dropdown-item" href="about.html">About Us</a>
-                              <a class="dropdown-item" href="faq.html">FAQ</a>
-                              <a class="dropdown-item" href="contact.html">Contact</a>
-                              <a class="dropdown-item" href="not-found.html">404 Page</a>
+                              <a class="dropdown-item" href="/#/about">About Us</a>
+                              <a class="dropdown-item" href="/#/faq">FAQ</a>
+                              <a class="dropdown-item" href="/#/contact">Contact</a>
                            </div>
-                        </li> -->
+                        </li>
                      </ul>
                      <div class="my-2 my-lg-0">
                         <ul class="list-inline main-nav-right">
@@ -91,22 +80,22 @@
                <div class="row">
                   <div class="col-lg-4 col-md-3">
                      <h4 class="mb-5"><a class="text-success logo" href="/#/"><i class="mdi mdi-home-map-marker"></i> <strong>Share</strong>TheExperience</a></h4>
-                     <p>Chicago, IL 60611</p>
-                     <p class="mb-0"><a class="text-success" href="#">boshnessy@gmail.com</a></p>
+                     <p>276 Oak Street, 24th Floor<br>Chicago, IL 60611</p>
+                     <p class="mb-0"><a class="text-success" href="#">hq@sharetheexperience.com</a></p>
                      <p class="mb-0"><a class="text-info" href="#">www.askbootstrap.com</a></p>
                   </div>
                   <div class="col-lg-2 col-md-2">
                      <h6 class="mb-4">COMPANY</h6>
                      <ul>
                         <li><a href="/#/about">About us</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="/#/contact">Contact</a></li>
                      <ul>
                   </div>
                   <div class="col-lg-2 col-md-2">
                      <h6 class="mb-4">LEARN MORE</h6>
                      <ul>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="/#/terms">Terms & Conditions</a></li>
+                        <li><a href="/#/faq">FAQ</a></li>
                      <ul>
                   </div>
                </div>
@@ -264,7 +253,7 @@
                            <p>Terms of Service: Content is subject to removal based on copyright or harassment complaints, or if content is deemed to be inappropriate.</p>
                            <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                              <label class="custom-control-label" for="customControlAutosizing">I agree with all Terms & Conditions</label>
+                              <label class="custom-control-label" for="customControlAutosizing">I agree with all <a class="text-success" href="/#/terms">Terms & Conditions</a>.</label>
                            </div>
                         </div>
                         <button type="submit" class="btn btn-success btn-block btn-primary" v-on:click="submit()">SIGN UP</button>
@@ -496,7 +485,6 @@
                      </div>
                   </div>
                   <!-- End Setlist -->
-                  <!-- </div> -->
                </div>
             </div>
          </div>
@@ -617,15 +605,135 @@
                   <img class="rounded img-fluid" src="img/about.jpg" alt="Card image cap">
                </div>
                <div class="col-lg-6 col-md-6 pl-5 pr-5">
-                  <h2 class="mt-5 mb-5">We Provide Lovable Experiment in the Real<br> Estate Field</h2>
+                  <h2 class="mt-5 mb-5">We Provide A Place For Music Fans To Connect & Share Their Concert-Going Experiences</h2>
                   <h5 class="mt-2">Our Vision</h5>
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,</p>
+                  <p>Since the beginning of time, music has brought people together. We hope that <strong>Share</strong>TheExperience will be a place for music fans to connect with others of similar musical taste and share their experiences, so to speak. </p>
                   <h5 class="mt-4">Our Goal</h5>
-                  <p>When looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,</p>
+                  <p><strong>Share</strong>TheExperience users will share their concert stories, their pictures, their memories.</p>
                </div>
             </div>
          </div>
       </section>
       <!-- End About -->
+   </div>
+</template>
+
+<template id="faq-page">
+   <div id="vue-component">
+      <!-- Inner Header -->
+      <section class="section-padding bg-dark inner-header">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 text-center">
+                  <h1 class="mt-0 mb-3 text-white">FAQ</h1>
+                  <div class="breadcrumbs">
+                     <p class="mb-0 text-white"><a class="text-white" href="#">Home</a>  /  <span class="text-success">FAQ</span></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End Inner Header -->
+      <!-- FAQ -->
+      <section class="section-padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 col-md-8 mx-auto">
+                  <div class="card padding-card">
+                     <div class="card-body">
+                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                           <div class="faq-card mb-3">
+                              <div class="faq-card-header mb-2" role="tab" id="headingOne">
+                                 <h5 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="mdi mdi-arrow-right-bold-box"></i>   I posted a picture in a forum. Why was it deleted?
+                                    </a>
+                                 </h5>
+                              </div>
+                              <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                 <p>
+                                    Typically, pictures are deleted after a copyright complaint. You can read more about our policies for deleting content in our <a class="text-success" href="/#/terms">Terms & Conditions</a>. 
+                                 </p>
+                              </div>
+                           </div>
+                           <div class="faq-card mb-3">
+                              <div class="faq-card-header mb-2" role="tab" id="headingTwo">
+                                 <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="mdi mdi-arrow-right-bold-box"></i> Can I post a video?
+                                    </a>
+                                 </h5>
+                              </div>
+                              <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                 <p>
+                                    Due to copyright concerns, users are only able to provide a link to videos at this time. If you wish to share a video you recorded at a concert, you may upload that video to YouTube and post the link in the event page's forum.
+                                 </p>
+                              </div>
+                           </div>
+                           <div class="faq-card mb-3">
+                              <div class="faq-card-header mb-2" role="tab" id="headingThree">
+                                 <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="mdi mdi-arrow-right-bold-box"></i> Can I change my profile picture?
+                                    </a>
+                                 </h5>
+                              </div>
+                              <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                 <p>
+                                    Users are not able to change their profile pictures at this time. Choose wisely!
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End FAQ -->
+   </div>
+</template>
+
+<template id="terms-page">
+   <div id="vue-component">
+      <!-- Inner Header -->
+      <section class="section-padding bg-dark inner-header">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 text-center">
+                  <h1 class="mt-0 mb-3 text-white">Terms & Conditions</h1>
+                  <div class="breadcrumbs">
+                     <p class="mb-0 text-white"><a class="text-white" href="#">Home</a>  /  <span class="text-success">Terms & Conditions</span></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End Inner Header -->
+      <!-- Register -->
+      <section class="section-padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 col-md-10 mx-auto">
+                  <div class="card padding-card">
+                     <div class="card-body">
+                        <p class="lead"> Last updated May 13, 2018</p>
+                        <hr>
+                        <p class="h5"> User Account, Password, and Security: </p>
+                        <p>  You may be required to register with the Site. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable. </p>
+                        <hr>
+                        <p class="h5">  User Conduct and Rules:  </p>
+                        <p>  You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us. </p>
+                        <hr>
+                        <p class="h5"> Copyright Infringements: </p>
+                        <p class="mb-0"> We respect the intellectual property rights of others. If you believe that any material available on or through the Site infringes upon any copyright you own or control, please immediately notify us using the contact information provided. A copy of your Notification will be sent to the person who posted or stored the material addressed in the Notification. Please be advised that pursuant to federal law you may be held liable for damages if you make material misrepresentations in a Notification. Thus, if you are not sure that material located on or linked to by the Site infringes on your copyright, you should consider first contacting an attorney.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End Register -->
    </div>
 </template>
