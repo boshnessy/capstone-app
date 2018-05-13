@@ -54,7 +54,6 @@
                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                               <a class="dropdown-item" href="/#/about">About Us</a>
                               <a class="dropdown-item" href="/#/faq">FAQ</a>
-                              <a class="dropdown-item" href="/#/contact">Contact</a>
                            </div>
                         </li>
                      </ul>
@@ -88,7 +87,6 @@
                      <h6 class="mb-4">COMPANY</h6>
                      <ul>
                         <li><a href="/#/about">About us</a></li>
-                        <li><a href="/#/contact">Contact</a></li>
                      <ul>
                   </div>
                   <div class="col-lg-2 col-md-2">
@@ -286,16 +284,7 @@
                            <label>Password <span class="text-danger">*</span></label>
                            <input type="password" class="form-control" v-model="password" placeholder="Enter Password">
                         </div>
-                        <div class="form-group">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                              <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
-                           </div>
-                        </div>
                         <button type="submit" class="btn btn-success btn-block btn-primary" v-on:click="submit()">LOG IN</button>
-                        <div class="mt-4 text-center">
-                           <a href="forget.html">Forget your password?</a>
-                        </div>
                      </div>
                   </div>
                </div>
@@ -416,8 +405,32 @@
                            <div class="media-body">
                               <div class="col-lg-12 col-md-4 text-right">
                                  <ul>
-                                 <li v-on:click="deleteComment(forum)"><i class="mdi mdi-close-box-outline text-danger"></i></li>
-                              </ul>
+                                    <li v-on:click="deleteComment(forum)"><i class="mdi mdi-close-box-outline text-danger float-right"></i></li>
+                                    <!-- Button trigger modal -->
+                                    <li v-on:click="setCurrentForum(forum)" data-toggle="modal" data-target="#exampleModal2"><span class="text-success"><i class="mdi mdi-table-edit"></i></span></li>
+                                 </ul>
+                                 <!-- Modal -->
+                                 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                   <div class="modal-dialog" role="document">
+                                     <div class="modal-content">
+                                       <div class="modal-header">
+                                         <h5 class="modal-title" id="exampleModalLabel">Edit Comment</h5>
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                           <span aria-hidden="true">&times;</span>
+                                         </button>
+                                       </div>
+                                       <div class="modal-body">
+                                          <div class="form-group left">
+                                          <label>Comment <span class="text-danger">*</span></label>
+                                          <input type="text" v-model="currentForum.comment" class="form-control">
+                                       </div>
+                                       </div>
+                                       <div class="modal-footer">
+                                         <button type="button" class="btn btn-success" v-on:click="editComment()">Save changes</button>
+                                       </div>
+                                     </div>
+                                   </div>
+                                 </div>
                               </div>
                               <h6 class="mt-0">{{ forum.user.username }} <small>{{ forum.created_at }}</small></h6>
                               <p>{{ forum.comment }}</p>

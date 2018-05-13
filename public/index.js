@@ -3,9 +3,7 @@
 var TermsPage = {
   template: "#terms-page",
   data: function() {
-    return {
-      message: "hi"
-    };
+    return {};
   },
   methods: {},
   computed: {}
@@ -14,9 +12,7 @@ var TermsPage = {
 var FAQPage = {
   template: "#faq-page",
   data: function() {
-    return {
-      message: "hi"
-    };
+    return {};
   },
   methods: {},
   computed: {}
@@ -25,9 +21,7 @@ var FAQPage = {
 var AboutPage = {
   template: "#about-page",
   data: function() {
-    return {
-      message: "hi"
-    };
+    return {};
   },
   methods: {},
   computed: {}
@@ -96,7 +90,8 @@ var EventShowPage = {
       artist_id: "",
       event_id: "",
       errors: [],
-      currentEvent: {date: "", artist: "", venue: "", city: "", state: "", image: ""}
+      currentEvent: {date: "", artist: "", venue: "", city: "", state: "", image: ""},
+      currentForum: {comment: ""}
     };
   },
   created: function() {
@@ -182,6 +177,21 @@ var EventShowPage = {
         router.push("/events/" + this.$route.params.id);
       }.bind(this));
     },
+    setCurrentForum: function(inputForum) {
+      this.currentForum = inputForum;
+    },
+    editComment: function() {
+      var params = {
+        user_id: this.currentForum.user_id,
+        event_id: this.event.id,
+        comment: this.currentForum.comment
+      };
+      axios.patch("/forums/" + this.currentForum.id, params).then(function(response) {
+        console.log("comment updated");
+      }).catch(function(error) {
+        this.errors = error.response.data.errors;
+      }.bind(this));
+    }
   },
   computed: {}
 };
