@@ -224,7 +224,18 @@ var HomePage = {
     setSortAttribute: function(inputAttribute) {
       this.sortAttribute = inputAttribute;
       this.sortAsc = !this.sortAsc;
-    }
+    },
+    pastEvents: function(event) {
+      var newEvents = [];
+      var today = new Date();
+      for (var i = 0; i < this.events.length; i++ ) {
+        // var event1 = Date.parse(event.date);
+        if (new Date(this.events[i].date) < today) {
+          newEvents.push(this.events[i]);
+        }
+      }
+      this.events = newEvents;
+    },
   },
   computed: {
     sortedEvents: function() {
