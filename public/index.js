@@ -227,13 +227,11 @@ var HomePage = {
   computed: {
     sortedEvents: function() {
       return this.events.sort(function(event1, event2) {
-        var event1Artist = event1[this.sortAttribute].toLowerCase();
-        var event2Artist = event2[this.sortAttribute].toLowerCase();
-        return event1Artist.localeCompare(event2Artist);
-        // var newDate = new Date();
-        // var event1Date = Date.parse(event1.date);
-        // var event2Date = Date.parse(event2.date);
-        // return event1Date > event2Date;
+        // var event1Artist = event1[this.sortAttribute].toLowerCase();
+        // var event2Artist = event2[this.sortAttribute].toLowerCase();
+        // return event1Artist.localeCompare(event2Artist);
+        // var today = new Date();
+        return new Date(event1.date) - new Date(event2.date);
       }.bind(this));
     }
   }
