@@ -163,7 +163,7 @@
                         <div class="input-group-addon"><i class="mdi mdi-map-marker-multiple"></i></div>
                         <input class="form-control" v-model="searchArtist" placeholder="Search by Artist" type="text" list="artists">
                         <datalist id="artists">
-                           <option v-for="event in events">{{ event.artists[0].name }}</option>
+                           <option v-for="event in events">{{ event.artists }}</option>
                         </datalist>
                      </div>
                   </div>
@@ -198,17 +198,20 @@
          <div class="section-title text-center mb-5">
             <h2> Latest Events</h2>
             <p>Search for an event by artist, city, or venue.</p>
+            <button class="btn btn-success" v-on:click="setSortAttribute('artists')">Sort by Artist</button>
+            <button class="btn btn-success" v-on:click="setSortAttribute('city')">Sort by City</button>
+            <button class="btn btn-success" v-on:click="setSortAttribute('venue')">Sort by Venue</button>
          </div>
          <div class="container">
             <div class="row">
-               <div class="col-lg-4 col-md-4" v-for="event in events" v-if="isValidEvent(event)" v-bind:key="event.id">
+               <div class="col-lg-4 col-md-4" v-for="event in sortedEvents" v-if="isValidEvent(event)" v-bind:key="event.id">
                   <div class="card card-list">
                      <a v-bind:href="'/#/events/' + event.id">
                         <span class="badge badge-success">View event</span>
                      </a>
                      <img class="card-img-top" v-bind:src="event.images[0].url" alt="Card image cap">
                      <div class="card-body">
-                        <h1 class="card-title">{{ event.artists[0].name }}</h1>
+                        <h1 class="card-title">{{ event.artists }}</h1>
                         <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> {{ event.city }}, {{ event.state }}</h6>
                         <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> {{ event.venue }}</h6>
                         <h2 class="text-success mb-0 mt-3">
@@ -337,7 +340,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-8 col-md-8">
-                     <h1 class="text-white">{{ event.artists[0].name }}</h1>
+                     <h1 class="text-white">{{ event.artists }}</h1>
                      <h4 class="text-white"><i class="mdi mdi-home-map-marker"></i> {{ event.city }}, {{ event.state }}</h4>
                      <h6 class="text-white"><i class="mdi mdi-home-map-marker"></i> {{ event.venue }}</h6>
                   </div>
@@ -451,7 +454,7 @@
                   </div>
                   <div class="card padding-card">
                      <div class="card-body">
-                        <h4 class="card-title mb-4">Talk to other {{ event.artists[0].name }} fans!</h4>
+                        <h4 class="card-title mb-4">Talk to other {{ event.artists }} fans!</h4>
                         <div class="control-group form-group">
                            <div class="controls">
                               <input type="text" class="form-control" placeholder="Add Comment to Forum" v-model="comment">
@@ -467,7 +470,7 @@
                   <!-- Start Artist Image -->
                   <div class="card sidebar-card">
                      <div class="card-body">
-                        <h4 class="card-title mb-4">{{ event.artists[0].name }}</h4>
+                        <h4 class="card-title mb-4">{{ event.artists }}</h4>
                         <div id="featured-properties">
                            <div class="carousel-inner">
                               <div class="carousel-item active">

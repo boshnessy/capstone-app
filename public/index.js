@@ -204,7 +204,8 @@ var HomePage = {
       searchVenue: "",
       searchCity: "",
       events: [],
-      artist: {}
+      artist: {},
+      sortAttribute: "artists"
     };
   },
   created: function() {
@@ -214,19 +215,26 @@ var HomePage = {
   },
   methods: {
     isValidEvent: function(inputEvent) {
-      var validArtist = inputEvent.artists[0].name.toLowerCase().includes(this.searchArtist.toLowerCase());
+      var validArtist = inputEvent.artists.toLowerCase().includes(this.searchArtist.toLowerCase());
       var validVenue = inputEvent.venue.toLowerCase().includes(this.searchVenue.toLowerCase());
       var validCity = inputEvent.city.toLowerCase().includes(this.searchCity.toLowerCase());
       return validArtist && validVenue && validCity;
+    },
+    setSortAttribute: function(inputAttribute) {
+      this.sortAttribute = inputAttribute;
     }
   },
   computed: {
     sortedEvents: function() {
       return this.events.sort(function(event1, event2) {
-        var event1Artist = event1.artists[0].name.toLowerCase();
-        var event2Artist = event2.artists[0].name.toLowerCase();
+        var event1Artist = event1[this.sortAttribute].toLowerCase();
+        var event2Artist = event2[this.sortAttribute].toLowerCase();
         return event1Artist.localeCompare(event2Artist);
-      });
+        // var newDate = new Date();
+        // var event1Date = Date.parse(event1.date);
+        // var event2Date = Date.parse(event2.date);
+        // return event1Date > event2Date;
+      }.bind(this));
     }
   }
 };
