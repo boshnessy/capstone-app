@@ -205,7 +205,8 @@ var HomePage = {
       searchCity: "",
       events: [],
       artist: {},
-      sortAttribute: "artists"
+      sortAttribute: "artists",
+      sortAsc: true
     };
   },
   created: function() {
@@ -222,16 +223,17 @@ var HomePage = {
     },
     setSortAttribute: function(inputAttribute) {
       this.sortAttribute = inputAttribute;
+      this.sortAsc = !this.sortAsc;
     }
   },
   computed: {
     sortedEvents: function() {
       return this.events.sort(function(event1, event2) {
-        // var event1Artist = event1[this.sortAttribute].toLowerCase();
-        // var event2Artist = event2[this.sortAttribute].toLowerCase();
-        // return event1Artist.localeCompare(event2Artist);
-        // var today = new Date();
-        return new Date(event1.date) - new Date(event2.date);
+        if (this.sortAsc) {
+          return new Date(event1.date) - new Date(event2.date);
+        } else {
+          return new Date(event2.date) - new Date(event1.date);
+        }
       }.bind(this));
     }
   }
