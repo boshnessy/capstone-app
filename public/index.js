@@ -226,16 +226,25 @@ var HomePage = {
       this.sortAsc = !this.sortAsc;
     },
     pastEvents: function(event) {
-      var newEvents = [];
+      var pastEvents = [];
       var today = new Date();
       for (var i = 0; i < this.events.length; i++ ) {
-        // var event1 = Date.parse(event.date);
         if (new Date(this.events[i].date) < today) {
-          newEvents.push(this.events[i]);
+          pastEvents.push(this.events[i]);
         }
       }
-      this.events = newEvents;
+      this.events = pastEvents;
     },
+    upcomingEvents: function(event) {
+      var futureEvents = [];
+      var today = new Date();
+      for (var i = 0; i < this.events.length; i++) {
+        if (new Date(this.events[i].date) > today) {
+          futureEvents.push(this.events[i]);
+        }
+      }
+      this.events = futureEvents;
+    }
   },
   computed: {
     sortedEvents: function() {
