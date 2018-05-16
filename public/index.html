@@ -80,8 +80,8 @@
                   <div class="col-lg-6 col-md-6">
                      <h2 class="mb-5"><a class="text-success logo" href="/#/"><i class="mdi mdi-home-map-marker"></i> <strong>Share</strong>TheExperience</a></h2>
                      <h6>276 Oak Street, 24th Floor<br>Chicago, IL 60611</h6>
-                     <h6 class="mb-0"><a class="text-success" href="#">hq@sharetheexperience.com</a></h6>
-                     <h6 class="mb-0"><a class="text-info" href="#">www.askbootstrap.com</a></h6>
+                     <h6 class="mb-0 text-success">hq@sharetheexperience.com</h6>
+                     <h6 class="mb-0 text-info">www.askbootstrap.com</h6>
                   </div>
                   <div class="col-lg-2 col-md-2">
                      <h6 class="mb-4">COMPANY</h6>
@@ -163,7 +163,7 @@
                         <div class="input-group-addon"><i class="mdi mdi-map-marker-multiple"></i></div>
                         <input class="form-control" v-model="searchArtist" placeholder="Search by Artist" type="text" list="artists">
                         <datalist id="artists">
-                           <option v-for="event in events">{{ event.artists }}</option>
+                           <option v-for="event in events">{{ event.artists[0].name }}</option>
                         </datalist>
                      </div>
                   </div>
@@ -196,10 +196,10 @@
       <!-- Properties List -->
       <section class="section-padding">
          <div class="section-title text-center mb-5">
-            <h2>Latest Events</h2>
+            <h2>Events</h2>
             <p>Search for an event by artist, city, or venue.</p>
-            <button class="btn btn-success" v-on:click="setSortAttribute()">Sort by Date</button>
             <button class="btn btn-success" v-on:click="pastEvents()">Past Events</button>
+            <button class="btn btn-success" v-on:click="setSortAttribute()">Sort by Date</button>
             <button class="btn btn-success" v-on:click="upcomingEvents()">Upcoming Events</button>
          </div>
          <div class="container">
@@ -211,7 +211,7 @@
                      </a>
                      <img class="card-img-top" v-bind:src="event.images[0].url" alt="Card image cap">
                      <div class="card-body">
-                        <h1 class="card-title">{{ event.artists }}</h1>
+                        <h1 class="card-title">{{ event.artists[0].name }}</h1>
                         <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> {{ event.city }}, {{ event.state }}</h6>
                         <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> {{ event.venue }}</h6>
                         <h2 class="text-success mb-0 mt-3">
@@ -260,7 +260,7 @@
                            <input type="file" class="form-control" v-on:change="uploadFile($event)">
                         </div>
                         <div class="form-group">
-                           <p>Terms of Service: Content is subject to removal based on copyright or harassment complaints, or if content is deemed to be inappropriate.</p>
+                           <p><strong>Terms of Service:</strong> Content is subject to removal based on copyright or harassment complaints, or if content is deemed to be inappropriate.</p>
                            <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                               <label class="custom-control-label" for="customControlAutosizing">I agree with all <a class="text-success" href="/#/terms">Terms & Conditions</a>.</label>
@@ -340,7 +340,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-8 col-md-8">
-                     <h1 class="text-white">{{ event.artists }}</h1>
+                     <h1 class="text-white">{{ event.artists[0].name }}</h1>
                      <h4 class="text-white"><i class="mdi mdi-home-map-marker"></i> {{ event.city }}, {{ event.state }}</h4>
                      <h6 class="text-white"><i class="mdi mdi-home-map-marker"></i> {{ event.venue }}</h6>
                   </div>
@@ -370,7 +370,7 @@
                                  <label>Date <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.date" class="form-control">
                               </div>
-                              <!-- <div class="form-group">
+                              <!-- <div class="form-group left">
                                  <label>Artist <span class="text-danger">*</span></label>
                                  <input type="text" v-model="currentEvent.artists" class="form-control">
                               </div> -->
@@ -438,7 +438,7 @@
                                        </div>
                                        </div>
                                        <div class="modal-footer">
-                                         <button type="button" class="btn btn-success" v-on:click="editComment()">Save changes</button>
+                                         <button type="button" class="btn btn-success" data-dismiss="modal" v-on:click="editComment()">Save changes</button>
                                        </div>
                                      </div>
                                    </div>
@@ -454,7 +454,7 @@
                   </div>
                   <div class="card padding-card">
                      <div class="card-body">
-                        <h4 class="card-title mb-4">Talk to other {{ event.artists }} fans!</h4>
+                        <h4 class="card-title mb-4">Talk to other {{ event.artists[0].name }} fans!</h4>
                         <div class="control-group form-group">
                            <div class="controls">
                               <input type="text" class="form-control" placeholder="Add Comment to Forum" v-model="comment">
@@ -470,7 +470,7 @@
                   <!-- Start Artist Image -->
                   <div class="card sidebar-card">
                      <div class="card-body">
-                        <h4 class="card-title mb-4">{{ event.artists }}</h4>
+                        <h4 class="card-title mb-4">{{ event.artists[0].name }}</h4>
                         <div id="featured-properties">
                            <div class="carousel-inner">
                               <div class="carousel-item active">
@@ -553,7 +553,7 @@
                <div class="col-md-12 text-center">
                   <h1 class="mt-0 mb-3 text-white">Add Event</h1>
                   <div class="breadcrumbs">
-                     <h5 class="mb-0 text-white">Create a new event so you can interact with other attendees, show off your pictures, and work together to update the setlist! </h5>
+                     <h5 class="mb-0 text-white">Create a new event so you can interact with other attendees, show off your pictures, and work together to update the setlist </h5>
                   </div>
                </div>
             </div>

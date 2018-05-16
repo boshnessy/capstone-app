@@ -142,11 +142,11 @@ var EventShowPage = {
     updateEvent: function() {
       var params = {
         date: this.currentEvent.date,
-        artist: this.currentEvent.artist,
+        artist: this.currentEvent.artists[0].name,
         venue: this.currentEvent.venue,
         city: this.currentEvent.city,
         state: this.currentEvent.state,
-        image: this.currentEvent.image
+        image: this.currentEvent.images
       };
       axios.patch("/events/" + this.currentEvent.id, params).then(function(response) {
         console.log("event updated");
@@ -206,7 +206,8 @@ var HomePage = {
       events: [],
       artist: {},
       sortAttribute: "artists",
-      sortAsc: true
+      sortAsc: true,
+      viewPast: false
     };
   },
   created: function() {
@@ -216,7 +217,7 @@ var HomePage = {
   },
   methods: {
     isValidEvent: function(inputEvent) {
-      var validArtist = inputEvent.artists.toLowerCase().includes(this.searchArtist.toLowerCase());
+      var validArtist = inputEvent.artists[0].name.toLowerCase().includes(this.searchArtist.toLowerCase());
       var validVenue = inputEvent.venue.toLowerCase().includes(this.searchVenue.toLowerCase());
       var validCity = inputEvent.city.toLowerCase().includes(this.searchCity.toLowerCase());
       return validArtist && validVenue && validCity;
@@ -228,12 +229,13 @@ var HomePage = {
     pastEvents: function(event) {
       var pastEvents = [];
       var today = new Date();
-      for (var i = 0; i < this.events.length; i++ ) {
+      for (var i = 0; i < this.events.length; i++) {
         if (new Date(this.events[i].date) < today) {
           pastEvents.push(this.events[i]);
         }
       }
       this.events = pastEvents;
+      return this.events;
     },
     upcomingEvents: function(event) {
       var futureEvents = [];
